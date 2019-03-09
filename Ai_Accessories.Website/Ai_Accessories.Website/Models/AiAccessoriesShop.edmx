@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ACCESSORIES_SHOPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ANHBIA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="URL" Type="nvarchar" MaxLength="100" />
+          <Property Name="TenHinh" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LOAISP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenloaiSP" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LOAIUSER">
+          <Key>
+            <PropertyRef Name="MaloaiUser" />
+          </Key>
+          <Property Name="MaloaiUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenloaiUser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+          <Property Name="Child" Type="int" />
+          <Property Name="Flag" Type="nchar" MaxLength="100" />
+          <Property Name="IsParent" Type="bit" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenSP" Type="nvarchar" MaxLength="100" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="HinhanhSP" Type="nvarchar" MaxLength="100" />
+          <Property Name="Conhang" Type="bit" />
+          <Property Name="ThongtinSP" Type="nvarchar(max)" />
+          <Property Name="LoaiSP" Type="int" />
+          <Property Name="Ngaydang" Type="datetime" />
+          <Property Name="Solanmua" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nchar" MaxLength="50" />
+          <Property Name="Password" Type="nchar" MaxLength="50" />
+          <Property Name="Hoten" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoaiUser" Type="int" />
+        </EntityType>
+        <Association Name="FK_SANPHAM_LOAISP">
+          <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="0..1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISP">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="LoaiSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_LOAIUSER">
+          <End Role="LOAIUSER" Type="Self.LOAIUSER" Multiplicity="0..1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIUSER">
+              <PropertyRef Name="MaloaiUser" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="LoaiUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ACCESSORIES_SHOPModelStoreContainer">
+          <EntitySet Name="ANHBIA" EntityType="Self.ANHBIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAISP" EntityType="Self.LOAISP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAIUSER" EntityType="Self.LOAIUSER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SANPHAM_LOAISP" Association="Self.FK_SANPHAM_LOAISP">
+            <End Role="LOAISP" EntitySet="LOAISP" />
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_LOAIUSER" Association="Self.FK_USER_LOAIUSER">
+            <End Role="LOAIUSER" EntitySet="LOAIUSER" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ACCESSORIES_SHOPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ANHBIA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TenHinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LOAISP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenloaiSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_SANPHAM_LOAISP" FromRole="LOAISP" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="LOAIUSER">
+          <Key>
+            <PropertyRef Name="MaloaiUser" />
+          </Key>
+          <Property Name="MaloaiUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenloaiUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="USERs" Relationship="Self.FK_USER_LOAIUSER" FromRole="LOAIUSER" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Child" Type="Int32" />
+          <Property Name="IsParent" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="HinhanhSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Conhang" Type="Boolean" />
+          <Property Name="ThongtinSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiSP" Type="Int32" />
+          <Property Name="Ngaydang" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LOAISP1" Relationship="Self.FK_SANPHAM_LOAISP" FromRole="SANPHAM" ToRole="LOAISP" />
+          <Property Name="Solanmua" Type="Int32" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiUser" Type="Int32" />
+          <NavigationProperty Name="LOAIUSER1" Relationship="Self.FK_USER_LOAIUSER" FromRole="USER" ToRole="LOAIUSER" />
+        </EntityType>
+        <Association Name="FK_SANPHAM_LOAISP">
+          <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="0..1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISP">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="LoaiSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_LOAIUSER">
+          <End Role="LOAIUSER" Type="Self.LOAIUSER" Multiplicity="0..1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIUSER">
+              <PropertyRef Name="MaloaiUser" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="LoaiUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ACCESSORIES_SHOPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ANHBIAs" EntityType="Self.ANHBIA" />
+          <EntitySet Name="LOAISPs" EntityType="Self.LOAISP" />
+          <EntitySet Name="LOAIUSERs" EntityType="Self.LOAIUSER" />
+          <EntitySet Name="MENUs" EntityType="Self.MENU" />
+          <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+          <EntitySet Name="USERs" EntityType="Self.USER" />
+          <AssociationSet Name="FK_SANPHAM_LOAISP" Association="Self.FK_SANPHAM_LOAISP">
+            <End Role="LOAISP" EntitySet="LOAISPs" />
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_LOAIUSER" Association="Self.FK_USER_LOAIUSER">
+            <End Role="LOAIUSER" EntitySet="LOAIUSERs" />
+            <End Role="USER" EntitySet="USERs" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="ACCESSORIES_SHOPModel.sysdiagram" />
+        </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ACCESSORIES_SHOPModelStoreContainer" CdmEntityContainer="ACCESSORIES_SHOPEntities">
+          <EntitySetMapping Name="ANHBIAs">
+            <EntityTypeMapping TypeName="ACCESSORIES_SHOPModel.ANHBIA">
+              <MappingFragment StoreEntitySet="ANHBIA">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="TenHinh" ColumnName="TenHinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAISPs">
+            <EntityTypeMapping TypeName="ACCESSORIES_SHOPModel.LOAISP">
+              <MappingFragment StoreEntitySet="LOAISP">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenloaiSP" ColumnName="TenloaiSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAIUSERs">
+            <EntityTypeMapping TypeName="ACCESSORIES_SHOPModel.LOAIUSER">
+              <MappingFragment StoreEntitySet="LOAIUSER">
+                <ScalarProperty Name="MaloaiUser" ColumnName="MaloaiUser" />
+                <ScalarProperty Name="TenloaiUser" ColumnName="TenloaiUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENUs">
+            <EntityTypeMapping TypeName="ACCESSORIES_SHOPModel.MENU">
+              <MappingFragment StoreEntitySet="MENU">
+                <ScalarProperty Name="IsParent" ColumnName="IsParent" />
+                <ScalarProperty Name="Child" ColumnName="Child" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SANPHAMs">
+            <EntityTypeMapping TypeName="ACCESSORIES_SHOPModel.SANPHAM">
+              <MappingFragment StoreEntitySet="SANPHAM">
+                <ScalarProperty Name="Solanmua" ColumnName="Solanmua" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="HinhanhSP" ColumnName="HinhanhSP" />
+                <ScalarProperty Name="Conhang" ColumnName="Conhang" />
+                <ScalarProperty Name="ThongtinSP" ColumnName="ThongtinSP" />
+                <ScalarProperty Name="LoaiSP" ColumnName="LoaiSP" />
+                <ScalarProperty Name="Ngaydang" ColumnName="Ngaydang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERs">
+            <EntityTypeMapping TypeName="ACCESSORIES_SHOPModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="LoaiUser" ColumnName="LoaiUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ACCESSORIES_SHOPModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

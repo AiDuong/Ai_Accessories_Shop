@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Ai_Accessories.Website.Models.SANPHAM> 
+<div>
+    @foreach (var product in Model)
+    {
+        <p>
+            Tên sản phẩm:  @product.TenSP
+        </p>
+        <p>
+            Giá sản phẩm: @product.Gia
+        </p>
+        <br />
+    }
+</div>

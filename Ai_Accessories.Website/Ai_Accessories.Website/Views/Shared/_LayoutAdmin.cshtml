@@ -1,0 +1,152 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Công ty TNHH Thép Vina Kyoei</title>
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <!-- bootstrap-progressbar -->
+    <link href="~/Content/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/Content/daterangepicker.css" rel="stylesheet" />
+    <!-- NProgress -->
+    <link href="~/Content/nprogress.css" rel="stylesheet" />
+    <link href="~/Content/fixedHeader.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/responsive.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/scroller.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/buttons.bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom Theme Style -->
+    <link href="~/Content/siteAdmin.css" rel="stylesheet" />
+
+    @RenderSection("styles", required: false)
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col menu_fixed">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="#" class="site_title"> 
+                            <img src="~/Content/images/logo-vinakyoei.png" width="100%" /> <span style="color:#ffcfad"></span>
+                        </a>
+                    </div> 
+                    <div class="clearfix"></div> 
+                    <!-- menu profile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+                            <img src="~/Content/images/user-128.png" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome</span>
+                            <h2>ADMIN</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <hr style="border:1px solid #263c52; margin-bottom:15px;" />
+                        <div class="menu_section">
+                            <h3>Menu</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a href="#"><i class="fa fa-dashboard"></i>Dashboard<span class="fa fa-circle" style="color:#b6ff00"></span></a>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-shopping-basket"></i> Product Management<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="#"> Product</a></li>
+                                        <li><a href="#"> Orders</a></li> 
+                                    </ul>
+                                </li> 
+                                <li>
+                                    <a><i class="fa fa-file-image-o"></i> Image Management <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="#">Cover Image</a></li>  
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="menu_section">
+                            <h3>SYSTEM MANAGEMENT</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="fa fa-sitemap"></i> Roles <span class="fa fa-circle" style="color:#b6ff00"></span></a>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-user"></i> Users <span class="fa fa-circle" style="color:#b6ff00"></span></a>
+                                </li>
+                            </ul>
+                        </div> 
+                    </div>
+                    <!-- /sidebar menu --> 
+                </div>
+            </div> 
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <div id="titleNav" style="padding-top:20px;" class="pull-left"></div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="~/img/user-128.png" alt="">ADMIN
+                                    <span class="fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="javascript:;"> Account</a></li>
+                                    <li>
+                                        <a href="javascript:;"> 
+                                            <span>Setting</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="javascript:;">Help</a></li>
+                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                </ul>
+                            </li> 
+                        </ul>
+                    </nav>
+                </div>
+            </div> 
+            <!-- page content -->
+            <div class="right_col" role="main">
+                @RenderBody()
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                FPT Information System - Ho Chi Minh City
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Custom Theme Scripts --> 
+    <script src="~/Scripts/customAdmin.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

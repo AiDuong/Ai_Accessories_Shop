@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html class="touch-styles">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
+    <link href="~/Content/sliderProduct.css" rel="stylesheet" />
+    <link href="~/Content/mainSite.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script> 
+    <script>
+/* Must be below squarespace-headers */(function () { var e = 'ontouchstart' in window || navigator.msMaxTouchPoints; var t = document.documentElement; if (!e && t) { t.className = t.className.replace(/touch-styles/, '') } })()
+    </script>
+</head>
+<body class="transparent-header enable-nav-button nav-button-style-outline collection-type-index collection-layout-default view-list has-banner-image index-page">
+    <a href="#" class="body-overlay"></a>
+    <div class="sqs-announcement-bar-dropzone"></div>
+    <div id="siteWrapper" class="clearfix" style="background-color:#f1f1f1">
+        <header id="header" class="show-on-scroll" role="banner">
+            <div class="header-inner">
+                <div id="logoWrapper" class="wrapper" data-content-field="site-title">
+                    <h1 id="logoImage">
+                        <a href="/">
+                            @*logo*@
+                            @*<img src="//static1.squarespace.com/static/5b94a223506fbe722619b779/t/5b951526c2241b0779142025/1551331511998/?format=1500w"/>*@
+                        </a>
+                    </h1>
+                </div>
+                <div id="headerNav">
+                    @Html.Action("Menu", "Product")
+                </div>
+            </div>
+        </header>
+        <main id="page" role="main">
+            <div id="content" class="main-content" data-content-field="main-content" data-collection-id="5b951807cd83660363de58d3">
+                <div id="trang-chu/store" class="index-section" data-url-id="trang-chu/store" data-collection-id="5b9cf1c32b6a28f6642fa009" data-edit-main-image="Banner">
+                    <div class="promoted-gallery-wrapper"></div>
+                    <div class="banner-thumbnail-wrapper has-description" data-content-field="main-image">
+                        <div class="color-overlay"></div>
+                        <figure id="thumbnail" class="loading content-fill">
+                            <img src="~/Content/images/anhbia.jpg" />
+                        </figure>
+                        <div class="desc-wrapper">
+                            <p style="white-space: pre-wrap;">
+                                <strong>Ai Accessories</strong>
+                            </p>
+                            <p style="color:white">
+                                Chuỗi cửa hàng bán lẻ đặc sản Đà Lạt uy tín nhất
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <br />
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+    </div> 
+    <footer>
+        <br />
+        <br />
+        <br />
+        <br />        <br />
+        <br />
+        <br />
+        <br />        <br />
+        <br />
+        <br />
+        <br />
+    </footer>
+</body>
+</html>

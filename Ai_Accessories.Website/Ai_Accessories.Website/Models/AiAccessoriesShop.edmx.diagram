@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="43231dbd780f428b8503283efc7beff9" Name="Diagram1">
+        <EntityTypeShape EntityType="ACCESSORIES_SHOPModel.ANHBIA" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCESSORIES_SHOPModel.LOAISP" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCESSORIES_SHOPModel.LOAIUSER" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCESSORIES_SHOPModel.MENU" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCESSORIES_SHOPModel.SANPHAM" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCESSORIES_SHOPModel.USER" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="ACCESSORIES_SHOPModel.FK_SANPHAM_LOAISP" ManuallyRouted="false" />
+        <AssociationConnector Association="ACCESSORIES_SHOPModel.FK_USER_LOAIUSER" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ACCESSORIES_SHOPModel.sysdiagram" Width="1.5" PointX="5.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

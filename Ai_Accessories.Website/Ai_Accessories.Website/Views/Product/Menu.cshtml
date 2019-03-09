@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Ai_Accessories.Website.Models.MENU> 
+<div id="mainNavWrapper" class="nav-wrapper" data-content-field="navigation-mainNav">
+    <nav id="mainNavigation" data-content-field="navigation-mainNav">
+        @foreach (var item in Model)
+        {
+            if (item.Child == null && item.IsParent == false)
+            { 
+                <div class="menu">
+                    <a href="#">
+                        @item.Ten
+                    </a>
+                </div>
+            }
+            if(item.IsParent == true)
+            {
+                <div class="folder">
+                    <div class="folder-toggle menu">@item.Ten</div>
+                    <div class="subnav">
+                        @foreach (var child in Model.Where(f=>f.Child == item.Id).ToList())
+                        { 
+                            <div class="collection">
+                                <a href="#">
+                                    @child.Ten
+                                </a>
+                            </div> 
+                        } 
+                    </div>
+                </div>
+            }
+        }
+    </nav>
+</div>
