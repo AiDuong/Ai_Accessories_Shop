@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 using RouteAttribute = AttributeRouting.Web.Mvc.RouteAttribute;
+using PagedList;
 
 namespace Ai_Accessories.Website.Controllers
 {
@@ -17,18 +18,44 @@ namespace Ai_Accessories.Website.Controllers
 
         //call Menu class from Model
         public MenuModel menu = new MenuModel();
-        // Page Index 
+
+        public readonly int pageSize = 10;
+
+        #region --Home Page--
+        [Route("trang-chu")]
         public ActionResult Index()
         {
             var newProduct = sanpham.GetNewProduct();
             return View(newProduct);
         }
-        //page test
-        public ActionResult test()
-        { 
+        #endregion
+
+        #region --Contact Page--
+        [Route("lien-he")]
+        public ActionResult Contact()
+        {
             return View();
         }
-        //Get product by type of product 
+        #endregion
+
+        #region --About--
+        [Route("cong-ty")]
+        public ActionResult About()
+        {
+            return View();
+        }
+        #endregion
+
+        [Route("san-pham-theo-loai/{flag}?page={page}")]
+        public ActionResult Mockhoa(string flag,int? page)
+        { 
+            int pageNumber = (page ?? 1); 
+            var posts = sanpham.ProductbyFlag(flag);
+            @ViewBag.TotalProduct = posts.Count();
+            return View(posts.ToList().ToPagedList(pageNumber, pageSize));
+        }
+
+        //Get product by type of product  
         public ActionResult ProductbyType(int type)
         {
             int number = 10;
@@ -42,17 +69,27 @@ namespace Ai_Accessories.Website.Controllers
             return PartialView(product);
         }
         // Get all infomation of Product by id 
+        [Route("chi-tiet-san-pham/{idProduct}")]
         public ActionResult ProductDetail(int idProduct)
         {
             var detail = sanpham.GetDetailProduct(idProduct);
             return View(detail);
         }
+
         // Get HotProduct
         public ActionResult Sanphambanchay(int number)
         {
             var product = sanpham.GetHotProduct(number);
             return PartialView(product);
         }
+
+        #region--test--
+        //page test
+        public ActionResult test()
+        {
+            return View();
+        }
+        #endregion
     }
     enum TypeProduct
     {

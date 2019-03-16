@@ -6,7 +6,7 @@
             if (item.Child == null && item.IsParent == false)
             { 
                 <div class="menu">
-                    <a href="#">
+                    <a href="/@item.Flag">
                         @item.Ten
                     </a>
                 </div>
@@ -15,11 +15,11 @@
             {
                 <div class="folder">
                     <div class="folder-toggle menu">@item.Ten</div>
-                    <div class="subnav">
+                    <div class="subnav row"style="width:380px">
                         @foreach (var child in Model.Where(f=>f.Child == item.Id).ToList())
                         { 
-                            <div class="collection">
-                                <a href="#">
+                            <div class="collection col-md-6">
+                                <a href="/san-pham-theo-loai/@child.Flag.Trim()?page=1">
                                     @child.Ten
                                 </a>
                             </div> 

@@ -19,6 +19,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenloaiSP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Flag" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="LOAIUSER">
           <Key>
@@ -131,6 +132,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenloaiSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_SANPHAM_LOAISP" FromRole="LOAISP" ToRole="SANPHAM" />
+          <Property Name="Flag" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="LOAIUSER">
           <Key>
@@ -245,6 +247,7 @@
           <EntitySetMapping Name="LOAISPs">
             <EntityTypeMapping TypeName="ACCESSORIES_SHOPModel.LOAISP">
               <MappingFragment StoreEntitySet="LOAISP">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TenloaiSP" ColumnName="TenloaiSP" />
               </MappingFragment>

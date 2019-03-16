@@ -315,6 +315,7 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Product.cshtml" />
     <Content Include="Views\Product\Sanphambanchay.cshtml" />
+    <Content Include="Views\Product\Mockhoa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

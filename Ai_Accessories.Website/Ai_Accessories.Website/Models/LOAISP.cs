@@ -22,6 +22,7 @@ namespace Ai_Accessories.Website.Models
     
         public int Id { get; set; }
         public string TenloaiSP { get; set; }
+        public string Flag { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SANPHAM> SANPHAMs { get; set; }

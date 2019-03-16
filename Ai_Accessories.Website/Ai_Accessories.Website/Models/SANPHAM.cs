@@ -23,7 +23,7 @@ namespace Ai_Accessories.Website.Models
         public Nullable<int> LoaiSP { get; set; }
         public Nullable<System.DateTime> Ngaydang { get; set; }
         public Nullable<int> Solanmua { get; set; }
-    
+         
         public virtual LOAISP LOAISP1 { get; set; }
     }
 }
