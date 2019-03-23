@@ -68,6 +68,24 @@
         <div class="container body-content">
             @RenderBody()
         </div>
+        <div class="fb-customerchat" page_id="397121324405709"></div>
+        <script>
+            window.fbAsyncInit = function () { 
+                FB.init({
+                    appId: '2140460166036401',
+                    autoLogAppEvents: true,
+                    xfbml: true,
+                    version: 'v2.11'
+                });
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     </div> 
     <footer>
         <br />
