@@ -125,6 +125,23 @@ namespace Ai_Accessories.Website.Models
 
             return model;
         }
+
+        public bool DeleteProduct(int id)
+        {
+            try
+            {
+                SANPHAM product = db.SANPHAMs.Find(id);
+                db.SANPHAMs.Remove(product);
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
     } 
     public partial class SANPHAM
     {

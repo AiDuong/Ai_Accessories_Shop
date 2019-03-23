@@ -29,7 +29,22 @@ namespace Ai_Accessories.Website.Area.Admin.Controllers
             int pageSize = 10;
             var posts = sanpham.GetSANPHAMs();
             @ViewBag.TotalProduct = posts.Count();
-            return View(posts.ToList().ToPagedList(pageNumber, pageSize));
-        } 
+            return View(posts.ToPagedList(pageNumber, pageSize));
+        }
+
+
+
+        public ActionResult DeleteProduct(int id)
+        {
+            bool Xoasanpham = sanpham.DeleteProduct(id);
+            if (Xoasanpham == true)
+            {
+                return RedirectToAction("Product", new { page = 1 });
+            }
+            else
+            {
+                return RedirectToAction("Product", new { page = 1 });
+            }
+        }
     }
 }
