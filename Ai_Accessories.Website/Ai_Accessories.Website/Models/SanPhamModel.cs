@@ -11,7 +11,39 @@ namespace Ai_Accessories.Website.Models
         ACCESSORIES_SHOPEntities db = new ACCESSORIES_SHOPEntities();
         public List<SANPHAM> GetSANPHAMs()
         {
-            return db.SANPHAMs.OrderByDescending(f => f.Ngaydang).ToList();
+            var loaiSP = db.LOAISPs.Where(f => f.Id > 0);
+            List<SANPHAM> model = new List<SANPHAM>();
+
+            var data = (from product in db.SANPHAMs
+                        join type in loaiSP on product.LoaiSP equals type.Id
+                        select new
+                        {
+                            Id = product.Id,
+                            TenSP = product.TenSP,
+                            Gia = product.Gia,
+                            TenLoaiSP = type.TenloaiSP,
+                            ThongtinSP = product.ThongtinSP,
+                            HinhanhSP = product.HinhanhSP,
+                            Conhang = product.Conhang,
+                            Ngaydang = product.Ngaydang
+                        }).ToList();
+
+            foreach (var product in data) //retrieve each item and assign to model
+            {
+                model.Add(new SANPHAM()
+                {
+                    Id = product.Id,
+                    TenSP = product.TenSP,
+                    Gia = product.Gia,
+                    TenLoaiSP = product.TenLoaiSP,
+                    ThongtinSP = product.ThongtinSP,
+                    HinhanhSP = product.HinhanhSP,
+                    Conhang = product.Conhang,
+                    Ngaydang = product.Ngaydang
+                });
+            }
+
+            return model;
         }
         public List<SANPHAM> GetNewProduct()
         {

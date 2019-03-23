@@ -3,6 +3,7 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,6 +11,8 @@ namespace Ai_Accessories.Website.Area.Admin.Controllers
 {
     public class AdminController : Controller
     {
+        ACCESSORIES_SHOPEntities db = new ACCESSORIES_SHOPEntities();
+
         //call SP class from Model
         public SanPhamModel sanpham = new SanPhamModel();
 
@@ -18,6 +21,8 @@ namespace Ai_Accessories.Website.Area.Admin.Controllers
         {
             return View();
         }
+
+        [HttpGet]
         public ActionResult Product(int? page)
         {
             int pageNumber = (page ?? 1);
@@ -25,7 +30,6 @@ namespace Ai_Accessories.Website.Area.Admin.Controllers
             var posts = sanpham.GetSANPHAMs();
             @ViewBag.TotalProduct = posts.Count();
             return View(posts.ToList().ToPagedList(pageNumber, pageSize));
-        }
-
+        } 
     }
 }
