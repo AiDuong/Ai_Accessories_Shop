@@ -70,7 +70,7 @@ namespace Ai_Accessories.Website.Controllers
         }
         // Get all infomation of Product by id 
         [Route("chi-tiet-san-pham/{idProduct}")]
-        public ActionResult ProductDetail(int idProduct)
+        public ActionResult Chitietsanpham(int idProduct)
         {
             var detail = sanpham.GetDetailProduct(idProduct);
             return View(detail);
@@ -83,6 +83,34 @@ namespace Ai_Accessories.Website.Controllers
             return PartialView(product);
         }
 
+        public ActionResult Vongtay(int number)
+        {
+            var product = sanpham.GetVongtay(number);
+            return PartialView(product);
+        }
+        public ActionResult MockhoaPartial(int number)
+        {
+            var product = sanpham.GetMockhoaPartial(number);
+                return PartialView(product);
+        }
+        public ActionResult Bongtai(int number)
+        {
+            var product = sanpham.GetBongtai(number);
+            return PartialView(product);
+        }
+        public ActionResult Maylamtoc(int number)
+        {
+            var product = sanpham.GetMaylamtoc(number);
+            return PartialView(product);
+        }
+        public ActionResult Cotrangdiem(int number)
+        {
+            var product = sanpham.GetCotrangdiem(number);
+            return PartialView(product);
+        }
+
+
+
         #region--test--
         //page test
         public ActionResult test()
@@ -91,6 +119,7 @@ namespace Ai_Accessories.Website.Controllers
         }
         #endregion
     }
+
     enum TypeProduct
     {
         Moc_khoa = 1,

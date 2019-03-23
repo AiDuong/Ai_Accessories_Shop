@@ -38,6 +38,27 @@ namespace Ai_Accessories.Website.Models
         {
             return db.SANPHAMs.OrderByDescending(f => f.Solanmua).Take(number).ToList();
         }
+        public List<SANPHAM> GetVongtay(int number)
+        {
+            return db.SANPHAMs.Where(f => f.LoaiSP == 8).Take(number).ToList();
+        }
+        public List<SANPHAM> GetMockhoaPartial(int number)
+        {
+            return db.SANPHAMs.Where(f => f.LoaiSP == 1).Take(number).ToList();
+        }
+        public List<SANPHAM> GetBongtai(int number)
+        {
+            return db.SANPHAMs.Where(f => f.LoaiSP == 2).Take(number).ToList();
+        }
+        public List<SANPHAM> GetMaylamtoc(int number)
+        {
+            return db.SANPHAMs.Where(f => f.LoaiSP == 3).Take(number).ToList();
+        }
+        public List<SANPHAM> GetCotrangdiem(int number)
+        {
+            return db.SANPHAMs.Where(f => f.LoaiSP == 15).Take(number).ToList();
+        }
+
         public List<SANPHAM> ProductbyFlag(string flag)
         {
             var loaiSP = db.LOAISPs.Where(f => f.Flag == flag);
