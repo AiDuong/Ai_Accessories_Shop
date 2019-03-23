@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+<h3>@Model.TenSP</h3>
+    <img style="width:200px;height:200px" src="~/Content/images/@Model.HinhanhSP" />
+    <h4>@String.Format("{0:n0}", Model.Gia) VNĐ</h4>
+<p>@Model.ThongtinSP</p>

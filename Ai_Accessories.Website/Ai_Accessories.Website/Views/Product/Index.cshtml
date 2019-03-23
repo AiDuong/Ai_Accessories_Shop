@@ -8,7 +8,8 @@
     @Html.Action("Sanphambanchay", "Product", new { number = 10 })
     <!-- Hot Product slider end-->
 </section>
-<br /> 
+<br />
+
 <section class="product-home-collection" style="background-color: white">
     <!-- New Product slider-->
     <div class="container-fluid">
@@ -58,7 +59,37 @@
     </div>
     <!-- New Product slider end-->
 </section>
-<br> 
+<section class="product-home-collection" style="background-color: white">
+    <br />
+    <!--Bong tai slider-->
+    @Html.Action("Bongtai", "Product", new { number = 10 })
+    <!--Bong tai slider end-->
+</section>
+<br />
+<section class="product-home-collection" style="background-color: white">
+    <!--Moc khoa slider-->
+    @Html.Action("MockhoaPartial", "Product", new { number = 10 })
+    <!--Moc khoa slider end-->
+</section>
+<br />
+<section class="product-home-collection" style="background-color: white">
+<!--Vong tay slider-->
+@Html.Action("Vongtay", "Product", new { number = 10 })
+<!-- Vong tay slider end-->
+</section>
+<br />
+<section class="product-home-collection" style="background-color: white">
+<!--Máy làm tóc slider-->
+@Html.Action("Maylamtoc", "Product", new { number = 10 })
+<!-- Máy làm tóc slider end-->
+</section>
+<br />
+<section class="product-home-collection" style="background-color: white">
+    <!--Cọ trang điểm slider-->
+    @Html.Action("Maylamtoc", "Product", new { number = 10 })
+    <!-- Cọ trang điểm slider end-->
+</section>
+<br>
 <script defer type="text/javascript">
     $(document).ready(function () {
         $('.carousel-showmanymoveone .item').each(function () {
