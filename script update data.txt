@@ -1,0 +1,46 @@
+USE [ACCESSORIES_SHOP]
+GO 
+UPDATE [dbo].[LOAISP] SET [Flag] = N'moc-khoa' WHERE Id = 1
+UPDATE [dbo].[LOAISP] SET [Flag] = N'bong-tai' WHERE Id = 2
+UPDATE [dbo].[LOAISP] SET [Flag] = N'may-lam-toc' WHERE Id = 3
+UPDATE [dbo].[LOAISP] SET [Flag] = N'but-cac-loai' WHERE Id = 4
+UPDATE [dbo].[LOAISP] SET [Flag] = N'day-cot-toc' WHERE Id = 5
+UPDATE [dbo].[LOAISP] SET [Flag] = N've-sinh-giay' WHERE Id = 6
+UPDATE [dbo].[LOAISP] SET [Flag] = N'giay-di-mua' WHERE Id = 7
+UPDATE [dbo].[LOAISP] SET [Flag] = N'vong-tay' WHERE Id = 8
+UPDATE [dbo].[LOAISP] SET [Flag] = N'tui-bop' WHERE Id = 9
+UPDATE [dbo].[LOAISP] SET [Flag] = N'guong-cac-loai' WHERE Id = 10
+UPDATE [dbo].[LOAISP] SET [Flag] = N'quat-cac-loai' WHERE Id = 11
+UPDATE [dbo].[LOAISP] SET [Flag] = N'op-lung' WHERE Id = 13
+UPDATE [dbo].[LOAISP] SET [Flag] = N'mong-tay' WHERE Id = 14
+UPDATE [dbo].[LOAISP] SET [Flag] = N'co-trang-diem' WHERE Id = 15
+UPDATE [dbo].[LOAISP] SET [Flag] = N'den-cac-loai' WHERE Id = 16
+UPDATE [dbo].[LOAISP] SET [Flag] = N'non-cac-loai' WHERE Id = 17
+UPDATE [dbo].[LOAISP] SET [Flag] = N'son-cac-loai' WHERE Id = 18
+UPDATE [dbo].[LOAISP] SET [Flag] = N'vo-cac-loai' WHERE Id = 19
+UPDATE [dbo].[LOAISP] SET [Flag] = N'giay-dep' WHERE Id = 20
+UPDATE [dbo].[LOAISP] SET [Flag] = N'dong-ho' WHERE Id = 21
+
+UPDATE [dbo].[MENU] SET [Flag] = N'trang-chu' WHERE Id = 1
+UPDATE [dbo].[MENU] SET [Flag] = N'san-pham' WHERE Id = 2
+UPDATE [dbo].[MENU] SET [Flag] = N'lien-he' WHERE Id = 3
+UPDATE [dbo].[MENU] SET [Flag] = N'cong-ty' WHERE Id = 4
+UPDATE [dbo].[MENU] SET [Flag] = N'tuyen-dung' WHERE Id = 5
+UPDATE [dbo].[MENU] SET [Flag] = N'vong-tay' WHERE Id = 6
+UPDATE [dbo].[MENU] SET [Flag] = N'moc-khoa' WHERE Id = 7
+UPDATE [dbo].[MENU] SET [Flag] = N'may-lam-toc' WHERE Id = 8
+UPDATE [dbo].[MENU] SET [Flag] = N'day-cot-toc' WHERE Id = 9
+UPDATE [dbo].[MENU] SET [Flag] = N'but-cac-loai' WHERE Id = 10
+UPDATE [dbo].[MENU] SET [Flag] = N've-sinh-giay' WHERE Id = 11
+UPDATE [dbo].[MENU] SET [Flag] = N'giay-di-mua' WHERE Id = 12
+UPDATE [dbo].[MENU] SET [Flag] = N'tui-bop' WHERE Id = 13
+UPDATE [dbo].[MENU] SET [Flag] = N'vo-cac-loai' WHERE Id = 14
+UPDATE [dbo].[MENU] SET [Flag] = N'giay-dep' WHERE Id = 15
+UPDATE [dbo].[MENU] SET [Flag] = N'dong-ho' WHERE Id = 16
+UPDATE [dbo].[MENU] SET [Flag] = N'op-lung' WHERE Id = 17
+UPDATE [dbo].[MENU] SET [Flag] = N'quat-cac-loai' WHERE Id = 18
+UPDATE [dbo].[MENU] SET [Flag] = N'guong-cac-loai' WHERE Id = 19
+UPDATE [dbo].[MENU] SET [Flag] = N'den-cac-loai' WHERE Id = 20
+UPDATE [dbo].[MENU] SET [Flag] = N'bong-tai' WHERE Id = 21
+UPDATE [dbo].[MENU] SET [Flag] = N'co-trang-diem' WHERE Id = 23
+UPDATE [dbo].[MENU] SET [Flag] = N'son-cac-loai' WHERE Id = 24
