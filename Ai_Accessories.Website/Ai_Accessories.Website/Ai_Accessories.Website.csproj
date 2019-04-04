@@ -308,19 +308,18 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\ProductbyType.cshtml" />
     <Content Include="Views\Product\Menu.cshtml" />
-    <Content Include="Views\Product\test.cshtml" />
     <Content Include="Views\Product\Chitietsanpham.cshtml" />
     <Content Include="Views\Shared\_LayoutDetail.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Product.cshtml" />
-    <Content Include="Views\Product\Sanphambanchay.cshtml" />
+    <Content Include="Views\Product\PartialSanphambanchay.cshtml" />
     <Content Include="Views\Product\Mockhoa.cshtml" />
-    <Content Include="Views\Product\Vongtay.cshtml" />
-    <Content Include="Views\Product\MockhoaPartial.cshtml" />
-    <Content Include="Views\Product\Bongtai.cshtml" />
-    <Content Include="Views\Product\Maylamtoc.cshtml" />
-    <Content Include="Views\Product\Cotrangdiem.cshtml" />
+    <Content Include="Views\Product\PartialVongtay.cshtml" />
+    <Content Include="Views\Product\PartialMockhoa.cshtml" />
+    <Content Include="Views\Product\PartialBongtai.cshtml" />
+    <Content Include="Views\Product\PartialMaylamtoc.cshtml" />
+    <Content Include="Views\Product\PartialCotrangdiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

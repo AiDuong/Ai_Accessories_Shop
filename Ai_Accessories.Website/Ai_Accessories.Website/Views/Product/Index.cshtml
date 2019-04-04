@@ -5,18 +5,22 @@
 }
 <section class="product-home-collection" style="background-color: white">
     <!-- Hot Product slider-->
-    @Html.Action("Sanphambanchay", "Product", new { number = 10 })
+    @Html.Action("PartialSanPhamBanChay", "Product", new { number = 10 })
     <!-- Hot Product slider end-->
 </section>
 <br />
-
+<style>
+    .container-fluid {
+       padding: 10px 0px;
+    }
+</style>
 <section class="product-home-collection" style="background-color: white">
     <!-- New Product slider-->
     <div class="container-fluid">
-        <h2 class="title-collection">Sản phẩm mới</h2>
+        <h2 class="title-collection"style="font-size:19px;padding-left: 15px;">Sản phẩm mới</h2>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="carousel carousel-showmanymoveone slide" id="itemslider1">
+                <div class="carousel carousel-showmanymoveone slide" id="itemslider">
                     <div class="carousel-inner">
                         @{int firstProduct = 1;}
                         @foreach (var item in Model)
@@ -62,31 +66,31 @@
 <br />
 <section class="product-home-collection" style="background-color: white">
     <!--Bong tai slider-->
-    @Html.Action("Bongtai", "Product", new { number = 10 })
+    @Html.Action("PartialBongtai", "Product", new { number = 10 })
     <!--Bong tai slider end-->
 </section>
 <br />
 <section class="product-home-collection" style="background-color: white">
     <!--Moc khoa slider-->
-    @Html.Action("MockhoaPartial", "Product", new { number = 10 })
+    @Html.Action("PartialMockhoa", "Product", new { number = 10 })
     <!--Moc khoa slider end-->
 </section>
 <br />
 <section class="product-home-collection" style="background-color: white">
     <!--Vong tay slider-->
-    @Html.Action("Vongtay", "Product", new { number = 10 })
+    @Html.Action("PartialVongTay", "Product", new { number = 10 })
     <!-- Vong tay slider end-->
 </section>
 <br />
 <section class="product-home-collection" style="background-color: white">
     <!--Máy làm tóc slider-->
-    @Html.Action("Maylamtoc", "Product", new { number = 10 })
+    @Html.Action("PartialMayLamToc", "Product", new { number = 10 })
     <!-- Máy làm tóc slider end-->
 </section>
 <br />
 <section class="product-home-collection" style="background-color: white">
     <!--Cọ trang điểm slider-->
-    @Html.Action("Cotrangdiem", "Product", new { number = 10 })
+    @Html.Action("PartialCoTrangDiem", "Product", new { number = 10 })
     <!-- Cọ trang điểm slider end-->
 </section>
 <br>
@@ -106,6 +110,5 @@
                     .appendTo($(this));
             }
         });
-    });
-
+    }); 
 </script>

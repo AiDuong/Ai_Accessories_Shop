@@ -13,21 +13,38 @@ namespace Ai_Accessories.Website.Controllers
 {
     public class ProductController : Controller
     {
+        #region--Private--
+        
         //call SP class from Model
-        public SanPhamModel sanpham = new SanPhamModel();
+        private SanPhamModel sanpham = new SanPhamModel();
 
         //call Menu class from Model
-        public MenuModel menu = new MenuModel();
+        private MenuModel menu = new MenuModel();
 
-        public readonly int pageSize = 10;
+        private readonly int pageSize = 10;
 
-        #region --Home Page--
+        #endregion
+
+        #region --HomePage--
         [Route("trang-chu")]
         public ActionResult Index()
         {
             var newProduct = sanpham.GetNewProduct();
             return View(newProduct);
         }
+        #endregion
+
+        #region--ProductbyType--
+
+        [Route("san-pham-theo-loai/{flag}?page={page}")]
+        public ActionResult ProductbyType(string flag, int? page)
+        {
+            int pageNumber = (page ?? 1);
+            var posts = sanpham.ProductbyFlag(flag);
+            @ViewBag.TotalProduct = posts.Count();
+            return View(posts.ToList().ToPagedList(pageNumber, pageSize));
+        }
+
         #endregion
 
         #region --Contact Page--
@@ -39,6 +56,7 @@ namespace Ai_Accessories.Website.Controllers
         #endregion
 
         #region --About--
+
         [Route("cong-ty")]
         public ActionResult About()
         {
@@ -46,29 +64,23 @@ namespace Ai_Accessories.Website.Controllers
         }
         #endregion
 
-        [Route("san-pham-theo-loai/{flag}?page={page}")]
-        public ActionResult Mockhoa(string flag,int? page)
-        { 
-            int pageNumber = (page ?? 1); 
-            var posts = sanpham.ProductbyFlag(flag);
-            @ViewBag.TotalProduct = posts.Count();
-            return View(posts.ToList().ToPagedList(pageNumber, pageSize));
-        }
+        #region--Menu--
 
-        //Get product by type of product  
-        public ActionResult ProductbyType(int type)
-        {
-            int number = 10;
-            var product = sanpham.GetbyType(type, number);
-            return PartialView(product);
-        }
-        //Get List Menu
         public ActionResult Menu()
         {
             var product = menu.Get();
             return PartialView(product);
         }
-        // Get all infomation of Product by id 
+
+        #endregion
+
+        #region--ProductDetail--
+
+        /// <summary>
+        /// Get all infomation of Product by id 
+        /// </summary>
+        /// <param name="idProduct">Id of Product</param>
+        /// <returns></returns>
         [Route("chi-tiet-san-pham/{idProduct}")]
         public ActionResult Chitietsanpham(int idProduct)
         {
@@ -76,71 +88,53 @@ namespace Ai_Accessories.Website.Controllers
             return View(detail);
         }
 
-        // Get HotProduct
-        public ActionResult Sanphambanchay(int number)
+        public ActionResult SameProduct(int idProduct, int number)
+        {
+            var product = sanpham.GetSameProduct(idProduct, number);
+            return PartialView("");
+        }
+
+        #endregion
+
+        #region--PartialforIndex--
+         
+        public ActionResult PartialSanPhamBanChay(int number)
         {
             var product = sanpham.GetHotProduct(number);
             return PartialView(product);
         }
 
-        public ActionResult Vongtay(int number)
+        public ActionResult PartialVongTay(int number)
         {
             var product = sanpham.GetVongtay(number);
             return PartialView(product);
         }
-        public ActionResult MockhoaPartial(int number)
+
+        public ActionResult PartialMockhoa(int number)
         {
             var product = sanpham.GetMockhoaPartial(number);
                 return PartialView(product);
         }
-        public ActionResult Bongtai(int number)
+
+        public ActionResult PartialBongtai(int number)
         {
             var product = sanpham.GetBongtai(number);
             return PartialView(product);
         }
-        public ActionResult Maylamtoc(int number)
+
+        public ActionResult PartialMayLamToc(int number)
         {
             var product = sanpham.GetMaylamtoc(number);
             return PartialView(product);
         }
-        public ActionResult Cotrangdiem(int number)
+
+        public ActionResult PartialCoTrangDiem(int number)
         {
             var product = sanpham.GetCotrangdiem(number);
             return PartialView(product);
         }
-
-
-
-        #region--test--
-        //page test
-        public ActionResult test()
-        {
-            return View();
-        }
+        
         #endregion
-    }
 
-    enum TypeProduct
-    {
-        Moc_khoa = 1,
-        Bong_tai = 2,
-        May_lam_toc = 3, 
-        Day_cot_toc = 4,
-        But = 5,
-        Ve_sinh_giay = 6,
-        Giay_di_mua = 7,
-        Vong_tay = 8,
-        Tui_bop = 9,
-        Guong = 10,
-        Quat = 11,
-        Op_lung =13,
-        Mong_tay = 14,
-        Co_trang_diem = 15,
-        Den = 16,
-        Non = 17,
-        Son = 18,
-        Vo = 19,  
-        Dep = 20,
-        Dong_ho = 21 
     }
 }

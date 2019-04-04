@@ -30,9 +30,7 @@ namespace Ai_Accessories.Website.Area.Admin.Controllers
             var posts = sanpham.GetSANPHAMs();
             @ViewBag.TotalProduct = posts.Count();
             return View(posts.ToPagedList(pageNumber, pageSize));
-        }
-
-
+        } 
 
         public ActionResult DeleteProduct(int id)
         {

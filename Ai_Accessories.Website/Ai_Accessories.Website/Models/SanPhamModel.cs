@@ -9,6 +9,7 @@ namespace Ai_Accessories.Website.Models
     public class SanPhamModel
     {
         ACCESSORIES_SHOPEntities db = new ACCESSORIES_SHOPEntities();
+
         public List<SANPHAM> GetSANPHAMs()
         {
             var loaiSP = db.LOAISPs.Where(f => f.Id > 0);
@@ -45,10 +46,12 @@ namespace Ai_Accessories.Website.Models
 
             return model;
         }
+
         public List<SANPHAM> GetNewProduct()
         {
             return db.SANPHAMs.OrderByDescending(f => f.Ngaydang).Take(10).ToList();
-        }
+        } 
+
         public List<SANPHAM> GetbyType(int typeSP, int number)
         {
             return db.SANPHAMs.OrderByDescending(f => f.Ngaydang).Where(f => f.LoaiSP == typeSP).Take(number).ToList();
@@ -66,29 +69,35 @@ namespace Ai_Accessories.Website.Models
         {
             return db.SANPHAMs.FirstOrDefault(f => f.Id == idProduct);
         }
+
         public List<SANPHAM> GetHotProduct(int number)
         {
             return db.SANPHAMs.OrderByDescending(f => f.Solanmua).Take(number).ToList();
         }
+
         public List<SANPHAM> GetVongtay(int number)
         {
-            return db.SANPHAMs.Where(f => f.LoaiSP == 8).Take(number).ToList();
+            return db.SANPHAMs.OrderByDescending(f=>f.Ngaydang).Where(f => f.LoaiSP == 8).Take(number).ToList();
         }
+
         public List<SANPHAM> GetMockhoaPartial(int number)
         {
-            return db.SANPHAMs.Where(f => f.LoaiSP == 1).Take(number).ToList();
+            return db.SANPHAMs.OrderByDescending(f => f.Ngaydang).Where(f => f.LoaiSP == 1).Take(number).ToList();
         }
+
         public List<SANPHAM> GetBongtai(int number)
         {
-            return db.SANPHAMs.Where(f => f.LoaiSP == 2).Take(number).ToList();
+            return db.SANPHAMs.OrderByDescending(f => f.Ngaydang).Where(f => f.LoaiSP == 2).Take(number).ToList();
         }
+
         public List<SANPHAM> GetMaylamtoc(int number)
         {
-            return db.SANPHAMs.Where(f => f.LoaiSP == 3).Take(number).ToList();
+            return db.SANPHAMs.OrderByDescending(f => f.Ngaydang).Where(f => f.LoaiSP == 3).Take(number).ToList();
         }
+
         public List<SANPHAM> GetCotrangdiem(int number)
         {
-            return db.SANPHAMs.Where(f => f.LoaiSP == 15).Take(number).ToList();
+            return db.SANPHAMs.OrderByDescending(f => f.Ngaydang).Where(f => f.LoaiSP == 15).Take(number).ToList();
         }
 
         public List<SANPHAM> ProductbyFlag(string flag)
@@ -98,6 +107,7 @@ namespace Ai_Accessories.Website.Models
 
             var data = (from product in db.SANPHAMs
                         join type in loaiSP on product.LoaiSP equals type.Id
+                        orderby product.Ngaydang descending
                         select new
                         {
                             Id = product.Id,
