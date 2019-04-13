@@ -156,6 +156,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Area\Admin\Controller\UserController.cs" />
     <Compile Include="Area\Admin\Controller\AdminController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,6 +189,7 @@
     <Compile Include="Models\MENU.cs">
       <DependentUpon>AiAccessoriesShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\SANPHAM.cs">
       <DependentUpon>AiAccessoriesShop.tt</DependentUpon>
@@ -215,7 +217,7 @@
     <Content Include="Content\images\bong tai bong.jpg" />
     <Content Include="Content\images\bong tai kim tuyen.jpg" />
     <Content Include="Content\images\but dau ngua.jpg" />
-    <Content Include="Content\images\bông tai chai rượu.jpg" />
+    <Content Include="Content\images\bong tai chai ruou.jpg" />
     <Content Include="Content\images\cay tan phan.jpg" />
     <Content Include="Content\images\chai ve sinh giay.jpg" />
     <Content Include="Content\images\day cot toc no nhung.jpg" />
@@ -228,7 +230,7 @@
     <Content Include="Content\images\hat in mong tay.jpg" />
     <Content Include="Content\images\hop but anh kim.jpg" />
     <Content Include="Content\images\logo-vinakyoei.png" />
-    <Content Include="Content\images\lô cuốn tóc.jpg" />
+    <Content Include="Content\images\lo cuon toc.jpg" />
     <Content Include="Content\images\Marco Gallager.png" />
     <Content Include="Content\images\may uon toc mini.jpg" />
     <Content Include="Content\images\moc khoa bao hong.jpg" />
@@ -239,14 +241,14 @@
     <Content Include="Content\images\non len.jpg" />
     <Content Include="Content\images\op lung ip mau tron.jpg" />
     <Content Include="Content\images\quat hinh thu.jpg" />
-    <Content Include="Content\images\quạt mini để bàn.jpg" />
+    <Content Include="Content\images\quat mini de ban.jpg" />
     <Content Include="Content\images\son duong nivia.jpg" />
     <Content Include="Content\images\tui.jpg" />
-    <Content Include="Content\images\túi trong suốt.jpg" />
+    <Content Include="Content\images\tui trong suot.jpg" />
     <Content Include="Content\images\user-128.png" />
     <Content Include="Content\images\vo soc.jpg" />
     <Content Include="Content\images\vong 5 mau.jpg" />
-    <Content Include="Content\images\đồng hồ dây trong suốt.jpg" />
+    <Content Include="Content\images\dong ho day trong suot.jpg" />
     <Content Include="Content\nprogress.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\responsive.bootstrap.min.css" />
@@ -321,6 +323,10 @@
     <Content Include="Views\Product\PartialMaylamtoc.cshtml" />
     <Content Include="Views\Product\PartialCotrangdiem.cshtml" />
     <Content Include="Views\Product\PartialSanPhamLienQuan.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

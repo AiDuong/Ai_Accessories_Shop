@@ -67,5 +67,7 @@
     <Build Include="dbo\Tables\LOAIUSER.sql" />
     <Build Include="dbo\Tables\LOAISP.sql" />
     <Build Include="dbo\Tables\ANHBIA.sql" />
+    <Build Include="dbo\Tables\DONDATHANG.sql" />
+    <Build Include="dbo\Tables\CHITIETDONHANG.sql" />
   </ItemGroup>
 </Project>
