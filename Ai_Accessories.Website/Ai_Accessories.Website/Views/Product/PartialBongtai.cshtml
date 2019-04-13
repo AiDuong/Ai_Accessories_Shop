@@ -3,7 +3,7 @@
     <h2 class="title-collection" style="font-size:19px;padding-left: 15px;">Bông tai</h2>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+            <div class="carousel carousel-showmanymoveone slide itemslider" id="PbongTai">
                 <div class="carousel-inner">
                     @{int firstProduct = 1;}
                     @foreach (var item in Model)
@@ -36,10 +36,10 @@
                     }
                 </div>
                 <div id="slider-control">
-                    <a class="left carousel-control" href="#itemslider" data-slide="prev">
+                    <a class="left carousel-control" href="#PbongTai" data-slide="prev">
                         <span class="glyphicon glyphicon-menu-left btn-prev"></span>
                     </a>
-                    <a class="right carousel-control" href="#itemslider" data-slide="next">
+                    <a class="right carousel-control" href="#PbongTai" data-slide="next">
                         <span class="glyphicon glyphicon-menu-right btn-next"></span>
                     </a>
                 </div>
@@ -47,5 +47,22 @@
         </div>
     </div>
 </div>
+<script defer type="text/javascript">
+    $(document).ready(function () {
+        $('#PbongTai .item').each(function () {
+            var itemToClone = $(this);
 
+            for (var i = 1; i < 6; i++) {
+                itemToClone = itemToClone.next();
+
+                if (!itemToClone.length) {
+                    itemToClone = $(this).siblings(':first');
+                }
+                itemToClone.children(':first-child').clone()
+                    .addClass("cloneditem-" + (i))
+                    .appendTo($(this));
+            }
+        });
+    });
+</script>
 

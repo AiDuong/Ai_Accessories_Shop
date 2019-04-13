@@ -88,10 +88,15 @@ namespace Ai_Accessories.Website.Controllers
             return View(detail);
         }
 
-        public ActionResult SameProduct(int idProduct, int number)
+        public ActionResult PartialSanPhamLienQuan(int number)
         {
-            var product = sanpham.GetSameProduct(idProduct, number);
-            return PartialView("");
+            var currentProduct = Int32.Parse(Request.Url.AbsoluteUri.Split('/')[4]);
+            var product = sanpham.GetSameProduct(currentProduct, number);
+
+            var rand = new Random();
+            var sameProduct = product.Skip(rand.Next(product.Count)).ToList();
+
+            return PartialView(sameProduct);
         }
 
         #endregion

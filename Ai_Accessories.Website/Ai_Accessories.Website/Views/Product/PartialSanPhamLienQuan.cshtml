@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Ai_Accessories.Website.Models.SANPHAM>
+<div class="container-fluid" style="background-color:white">
+    <h2 class="title-collection">Sản Phẩm Liên Quan</h2>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="carousel carousel-showmanymoveone slide itemslider" id="PsanPhamLienQuan">
+                <div class="carousel-inner"> 
+                    @foreach (var item in Model)
+                    { 
+                        <div class="item active">
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <a href="chi-tiet-san-pham/@item.Id">
+                                    <img src="~/Content/images/@item.HinhanhSP" class="img-responsive center-block">
+                                </a>
+                                <h4 class="text-center">@item.TenSP</h4>
+                                <h5 class="text-center">@String.Format("{0:n0}", item.Gia) VNĐ</h5>
+                            </div>
+                        </div>
+                    }  
+                </div> 
+            </div>
+        </div>
+    </div>
+</div> 

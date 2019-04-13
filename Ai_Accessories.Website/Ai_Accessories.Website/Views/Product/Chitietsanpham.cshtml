@@ -11,8 +11,8 @@
             max-height: 210px;
             width: 67%;
         }
-    #itemslider img{
-        height:210px
+    #PsanPhamLienQuan img {
+        height: 232px
     }
 </style>
 <div class="row">
@@ -21,43 +21,7 @@
             a
         </div>
         <br />
-        <div class="container-fluid" style="background-color:white;padding: 10px 0px">
-            <h2 class="title-collection" style="font-size:19px;padding-left: 15px;">Sản phẩm liên quan </h2>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="carousel carousel-showmanymoveone slide" id="itemslider">
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <a href="#">
-                                        <img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block">
-                                    </a>
-                                    <h4 class="text-center">Test</h4>
-                                    <h5 class="text-center">80.000 VNĐ</h5>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <a href="#">
-                                        <img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block">
-                                    </a>
-                                    <h4 class="text-center">Test</h4>
-                                    <h5 class="text-center">75.000 VNĐ</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="slider-control" >
-                            <a class="left carousel-control" href="#itemslider" data-slide="prev" style="margin-left:-2px;width:5%">
-                                <span class="glyphicon glyphicon-menu-left btn-prev"></span>
-                            </a>
-                            <a class="right carousel-control" href="#itemslider" data-slide="next" style="margin-right:-3px;width:5%">
-                                <span class="glyphicon glyphicon-menu-right btn-next"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @Html.Action("PartialSanPhamLienQuan", "Product", new {number = 4 })
     </div>
     <div class="col-md-3" id="content-right">
         <div class="panel-body" id="body-content-right">
@@ -89,21 +53,4 @@
         </div>
     </div>
 </div>
-<br>
-<script defer type="text/javascript">
-    $(document).ready(function () {
-        $('.carousel-showmanymoveone .item').each(function () {
-            var itemToClone = $(this); 
-            for (var i = 1; i < 4; i++) {
-                itemToClone = itemToClone.next();
-
-                if (!itemToClone.length) {
-                    itemToClone = $(this).siblings(':first');
-                }
-                itemToClone.children(':first-child').clone()
-                    .addClass("cloneditem-" + (i))
-                    .appendTo($(this));
-            }
-        });
-    }); 
-</script>
+<br> 

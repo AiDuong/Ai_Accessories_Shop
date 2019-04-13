@@ -320,6 +320,7 @@
     <Content Include="Views\Product\PartialBongtai.cshtml" />
     <Content Include="Views\Product\PartialMaylamtoc.cshtml" />
     <Content Include="Views\Product\PartialCotrangdiem.cshtml" />
+    <Content Include="Views\Product\PartialSanPhamLienQuan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,3 +26,15 @@ h1, h2, h3, h4, h5, a, p {
 .panel-body{
     background-color:white
 }
+.product-home-collection {
+    background-color: white
+}
+    .product-home-collection img {
+        height: 232px;
+        min-height: 232px;
+        max-height: 232px;
+    }
+.title-collection {
+    font-size: 19px; 
+    padding: 15px 0px 0px 15px;
+} 
