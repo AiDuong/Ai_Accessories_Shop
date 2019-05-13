@@ -23,6 +23,12 @@
         <br />
         @Html.Action("PartialSanPhamLienQuan", "Product", new {number = 4 })
     </div>
+
+    <div id="Datmua">
+        <a href="@Url.Action("Themgiohang","Giohang", new {@iId = @Model.Id, @sURL = Request.Url.ToString() })"
+          ĐẶT MUA
+        </a>
+    </div>
     <div class="col-md-3" id="content-right">
         <div class="panel-body" id="body-content-right">
             <div class="panel-info">

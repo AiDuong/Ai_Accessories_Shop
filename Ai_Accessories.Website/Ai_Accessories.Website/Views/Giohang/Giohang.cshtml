@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Ai_Accessories.Website.Models.Giohang>
+@{
+    ViewBag.Title = "Giohang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="text-align:center"> THÔNG TIN GIỎ HÀNG </h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td> Mã sản phẩm </td>
+        <td> Tên sản phẩm </td>
+        <td> Hình ảnh </td>
+        <td> Số lượng </td>
+        <td> Đơn giá </td>
+        <td> Thành tiền </td>
+        <td></td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr style="text-align:center; font-weight:bold ">
+        <td> @item.iId </td>
+        <td> @item.sTenSP </td>
+        <td><img src="~/Content/images/@item.sHinhanhSP" /></td>
+        <td> @item.iSoluong </td>
+        <td> @String.Format("{0:0,0}", item.dGia) </td>
+        <td> @String.Format("{0:0,0}", item.dThanhtien) </td>
+        <td><a href="@Url.Action("Chitietsanpham","Product", new{id = item.iId})">Chi tiết</a></td>
+        <td> @Html.ActionLink("Xóa", "XoaGiohang", new { @iid = item.iId })</td>
+    </tr>
+    }
+    <tr style="font-weight:bold; text-align:center; color:red">
+        <td colspan="4"> Số lượng sản phẩm : @ViewBag.Tongsoluong </td>
+        <td colspan="4"> Tổng tiền : @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ </td>
+    </tr>
+</table>

@@ -158,6 +158,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Area\Admin\Controller\UserController.cs" />
     <Compile Include="Area\Admin\Controller\AdminController.cs" />
+    <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -189,6 +190,7 @@
     <Compile Include="Models\MENU.cs">
       <DependentUpon>AiAccessoriesShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\SANPHAM.cs">
@@ -229,6 +231,20 @@
     <Content Include="Content\images\guong co den.jpg" />
     <Content Include="Content\images\hat in mong tay.jpg" />
     <Content Include="Content\images\hop but anh kim.jpg" />
+    <Content Include="Content\images\bong tai ngoc trai.jpg" />
+    <Content Include="Content\images\bong tai titan.jpg" />
+    <Content Include="Content\images\bong tai tam giac.jpg" />
+    <Content Include="Content\images\bo co naked.jpg" />
+    <Content Include="Content\images\bo co 3ce.jpg" />
+    <Content Include="Content\images\bo co 5 cay.jpg" />
+    <Content Include="Content\images\may bam toc.jpg" />
+    <Content Include="Content\images\cay uon toc khong nhiet.jpg" />
+    <Content Include="Content\images\lo cuon toc trai dau.jpg" />
+    <Content Include="Content\images\moc khoa balo mini.jpg" />
+    <Content Include="Content\images\moc khoa nguoi go.jpg" />
+    <Content Include="Content\images\moc khoa minion.jpg" />
+    <Content Include="Content\images\vong tay hat ngoc.jpg" />
+    <Content Include="Content\images\vong tay tran chau.jpg" />
     <Content Include="Content\images\logo-vinakyoei.png" />
     <Content Include="Content\images\lo cuon toc.jpg" />
     <Content Include="Content\images\Marco Gallager.png" />
@@ -245,6 +261,8 @@
     <Content Include="Content\images\son duong nivia.jpg" />
     <Content Include="Content\images\tui.jpg" />
     <Content Include="Content\images\tui trong suot.jpg" />
+    <Content Include="Content\images\vong tay bac.jpg" />
+    <Content Include="Content\images\vong tay pandora.jpg" />
     <Content Include="Content\images\user-128.png" />
     <Content Include="Content\images\vo soc.jpg" />
     <Content Include="Content\images\vong 5 mau.jpg" />
@@ -327,6 +345,8 @@
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\Giohang\Giohang.cshtml" />
+    <Content Include="Views\Giohang\GiohangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
