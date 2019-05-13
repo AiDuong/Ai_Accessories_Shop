@@ -109,6 +109,12 @@ namespace Ai_Accessories.Website.Controllers
             return PartialView(product);
         }
 
+        public ActionResult PartialSanPhamBanChayForDetail(int number)
+        {
+            var product = sanpham.GetHotProduct(number);
+            return PartialView(product);
+        }
+
         public ActionResult PartialVongTay(int number)
         {
             var product = sanpham.GetVongtay(number);

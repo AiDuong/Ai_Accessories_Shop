@@ -42,5 +42,9 @@ namespace Ai_Accessories.Website.Area.Admin.Controllers
         }
         
         #endregion
+        public ActionResult AddNewProduct()
+        {
+            return View();
+        }
     }
 }
