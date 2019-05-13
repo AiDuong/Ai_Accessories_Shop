@@ -12,26 +12,23 @@ namespace Ai_Accessories.Website.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SANPHAM
+    public partial class DONDATHANG
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SANPHAM()
+        public DONDATHANG()
         {
             this.CHITIETDONHANGs = new HashSet<CHITIETDONHANG>();
         }
     
-        public int Id { get; set; }
-        public string TenSP { get; set; }
-        public Nullable<int> Gia { get; set; }
-        public string HinhanhSP { get; set; }
-        public Nullable<bool> Conhang { get; set; }
-        public string ThongtinSP { get; set; }
-        public Nullable<int> LoaiSP { get; set; }
-        public Nullable<System.DateTime> Ngaydang { get; set; }
-        public Nullable<int> Solanmua { get; set; }
+        public int MaDonHang { get; set; }
+        public Nullable<bool> Dathanhtoan { get; set; }
+        public Nullable<bool> Tinhtranggiaohang { get; set; }
+        public Nullable<System.DateTime> Ngaydat { get; set; }
+        public Nullable<System.DateTime> Ngaygiao { get; set; }
+        public Nullable<int> MaKH { get; set; }
     
-        public virtual LOAISP LOAISP1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
+        public virtual CLIENTACCOUNT CLIENTACCOUNT { get; set; }
     }
 }

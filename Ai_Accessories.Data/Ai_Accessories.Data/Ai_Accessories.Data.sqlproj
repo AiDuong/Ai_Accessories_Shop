@@ -59,6 +59,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\USER.sql" />
@@ -69,5 +70,9 @@
     <Build Include="dbo\Tables\ANHBIA.sql" />
     <Build Include="dbo\Tables\DONDATHANG.sql" />
     <Build Include="dbo\Tables\CHITIETDONHANG.sql" />
+    <Build Include="dbo\Tables\CLIENTACCOUNT.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Snapshots\Ai_Accessories.Data_20190513_20-14-26.dacpac" />
   </ItemGroup>
 </Project>

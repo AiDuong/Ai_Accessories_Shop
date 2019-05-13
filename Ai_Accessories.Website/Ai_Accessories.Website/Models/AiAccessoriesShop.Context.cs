@@ -32,5 +32,8 @@ namespace Ai_Accessories.Website.Models
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<USER> USERs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
+        public virtual DbSet<CLIENTACCOUNT> CLIENTACCOUNTs { get; set; }
+        public virtual DbSet<DONDATHANG> DONDATHANGs { get; set; }
     }
 }

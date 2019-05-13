@@ -4,29 +4,34 @@
         @foreach (var item in Model)
         {
             if (item.Child == null && item.IsParent == false)
-            { 
+            {
                 <div class="menu">
                     <a href="/@item.Flag">
                         @item.Ten
                     </a>
                 </div>
             }
-            if(item.IsParent == true)
+            if (item.IsParent == true)
             {
                 <div class="folder">
                     <div class="folder-toggle menu">@item.Ten</div>
-                    <div class="subnav row"style="width:380px">
-                        @foreach (var child in Model.Where(f=>f.Child == item.Id).ToList())
-                        { 
+                    <div class="subnav row" style="width:380px">
+                        @foreach (var child in Model.Where(f => f.Child == item.Id).ToList())
+                        {
                             <div class="collection col-md-6">
                                 <a href="/san-pham-theo-loai/@child.Flag.Trim()?page=1">
                                     @child.Ten
                                 </a>
-                            </div> 
-                        } 
+                            </div>
+                        }
                     </div>
                 </div>
             }
         }
+        <div class="menu">
+            <a href="#">
+                Đăng Nhập 
+            </a>
+        </div>
     </nav>
 </div>

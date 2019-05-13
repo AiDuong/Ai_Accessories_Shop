@@ -16,11 +16,7 @@ namespace Ai_Accessories.Website.Area.Admin.Controllers
         //call SP class from Model
         public SanPhamModel sanpham = new SanPhamModel();
 
-        // GET: Admin
-        public ActionResult Index()
-        {
-            return View();
-        }
+        #region --Product Management-- 
 
         [HttpGet]
         public ActionResult Product(int? page)
@@ -44,5 +40,7 @@ namespace Ai_Accessories.Website.Area.Admin.Controllers
                 return RedirectToAction("Product", new { page = 1 });
             }
         }
+        
+        #endregion
     }
 }
