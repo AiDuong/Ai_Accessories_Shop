@@ -24,7 +24,6 @@ namespace Ai_Accessories.Website.Models
         public string AccountName { get; set; }
         public string PassWord { get; set; }
         public string ClientName { get; set; }
-        public Nullable<bool> Gender { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }

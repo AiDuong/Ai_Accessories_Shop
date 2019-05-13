@@ -159,6 +159,7 @@
     <Compile Include="Area\Admin\Controller\RolesController.cs" />
     <Compile Include="Area\Admin\Controller\UserController.cs" />
     <Compile Include="Area\Admin\Controller\AdminController.cs" />
+    <Compile Include="Controllers\ClientAccountController.cs" />
     <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -362,6 +363,9 @@
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\List.cshtml" />
+    <Content Include="Views\ClientAccount\Register.cshtml" />
+    <Content Include="Views\ClientAccount\Infomation.cshtml" />
+    <Content Include="Views\ClientAccount\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

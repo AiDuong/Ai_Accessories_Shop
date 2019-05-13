@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Ai_Accessories.Website.Models.CLIENTACCOUNT>
+
+@{
+    ViewBag.Title = "Sign In";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}  
+<div class="form-horizontal">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-2"></div>
+            <label class="col-md-2 control-label">Account</label>
+            <div class="col-md-4">
+                @Html.TextBox("Account")
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2"></div>
+            <label class="col-md-2 control-label">Password</label>
+            <div class="col-md-4">
+                @Html.TextBox("Password")
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4"></div>
+            <div class="col-md-6">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a href="/ClientAccount/Register" class="btn btn-basic">Register</a>
+            </div>
+        </div>
+    }
+
+</div>
+ 
