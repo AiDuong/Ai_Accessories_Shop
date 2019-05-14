@@ -159,6 +159,7 @@
     <Compile Include="Area\Admin\Controller\RolesController.cs" />
     <Compile Include="Area\Admin\Controller\UserController.cs" />
     <Compile Include="Area\Admin\Controller\AdminController.cs" />
+    <Compile Include="Controllers\ClientAccountController.cs" />
     <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -326,9 +327,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -354,8 +353,6 @@
     <Content Include="Views\Product\PartialMaylamtoc.cshtml" />
     <Content Include="Views\Product\PartialCotrangdiem.cshtml" />
     <Content Include="Views\Product\PartialSanPhamLienQuan.cshtml" />
-    <Content Include="Views\Product\PartialSanPhamBanChayForDetail.cshtml" />
-    <Content Include="Views\Product\Contact.cshtml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
@@ -366,7 +363,9 @@
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\List.cshtml" />
-    <Content Include="Views\Admin\AddNewProduct.cshtml" />
+    <Content Include="Views\ClientAccount\Register.cshtml" />
+    <Content Include="Views\ClientAccount\Infomation.cshtml" />
+    <Content Include="Views\ClientAccount\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
