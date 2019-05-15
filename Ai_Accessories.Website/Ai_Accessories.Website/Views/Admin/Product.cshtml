@@ -24,7 +24,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2><span class="fa fa-shopping-basket" style="color:#1bc279"></span> PRODUCT</h2>
+                <h2 style="font-weight:bold; color: black"><span class="fa fa-shopping-basket" style="color:black"></span> PRODUCT</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li style="float:right">
                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -34,7 +34,8 @@
             </div>
             <div class="x_content">
                 <p class="text-muted font-13 m-b-30">
-                    <a class="btn btn-success pull-right" href="#"><span class="fa fa-plus"></span> New Product</a>
+                    <a class="btn btn-success pull-right" href="#">
+                    <span class="fa fa-plus"></span> New Product</a>
                 </p>
                 <span>Total: @ViewBag.TotalProduct products</span>
                 <div class="clearfix"></div>
@@ -78,6 +79,7 @@
                 <div class="page" style="display:inline">
                     @Html.PagedListPager(Model, page => Url.Action("Product", new { page = page }))
                 </div>
+
             </div>
         </div>
     </div>

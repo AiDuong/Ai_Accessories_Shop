@@ -1,13 +1,25 @@
-﻿@model IEnumerable<Ai_Accessories.Website.Models.SANPHAM> 
+﻿@model IEnumerable<Ai_Accessories.Website.Models.SANPHAM>
 <div>
     @foreach (var product in Model)
     {
+
         <p>
             Tên sản phẩm:  @product.TenSP
         </p>
         <p>
             Giá sản phẩm: @product.Gia
         </p>
+        <p>
+            Tình trạng sản phẩm: @product.Conhang
+        </p>
+        <p>
+            Thông tin sản phẩm: @product.ThongtinSP
+        </p>
+        <img src="~/Content/images/@product.HinhanhSP" />
         <br />
     }
 </div>
+<div class="col-md-3" id="content-right">
+    @Html.Action("PartialSanPhamBanChayForDetail", "Product", new { number = 10 })
+</div>
+<br>

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Ai_Accessories.Website.Models.SANPHAM> 
+
+<div class="panel-body" id="body-content-right">
+    <h4 style="color:black; font-weight:bold"> Sản phẩm bán chạy </h4>
+    @foreach (var item in Model)
+    {
+        <div class="panel-info">
+            <img src="~/Content/images/@item.HinhanhSP" class="img-responsive center-block" />
+            <h5>@item.TenSP </h5>
+            <h5>@String.Format("{0:n0}", item.Gia) VNĐ </h5>
+        </div>
+    }
+</div>

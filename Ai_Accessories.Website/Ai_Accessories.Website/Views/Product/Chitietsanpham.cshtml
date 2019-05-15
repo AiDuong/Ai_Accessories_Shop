@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Ai_Accessories.Website.Models.SANPHAM
+@{
     ViewBag.Title = "Product Detail";
     Layout = "~/Views/Shared/_LayoutDetail.cshtml";
 }
@@ -11,6 +12,7 @@
             max-height: 210px;
             width: 67%;
         }
+
     #PsanPhamLienQuan img {
         height: 232px
     }
@@ -18,45 +20,33 @@
 <div class="row">
     <div class="col-md-9" id="content-left">
         <div class="panel-body">
-            a
+            <p>
+                Tên sản phẩm:  @Model.TenSP
+            </p>
+            <p>
+                Giá sản phẩm:  @Model.Gia
+            </p>
+            <p>
+                Mô tả thông tin : @Model.ThongtinSP
+            </p>
+            <p>
+                Tình trạng hàng : @Model.Conhang
+            </p>
+            <p>
+                Số hàng đã bán : @Model.Solanmua
+            </p>
+            <img src="~/Content/images/@Model.HinhanhSP" />
         </div>
         <br />
-        @Html.Action("PartialSanPhamLienQuan", "Product", new {number = 4 })
+        @Html.Action("PartialSanPhamLienQuan", "Product", new { number = 10 })
     </div>
 
     <div id="Datmua">
         <a href="@Url.Action("Themgiohang","Giohang", new {@iId = @Model.Id, @sURL = Request.Url.ToString() })"
-          ĐẶT MUA
+           ĐẶT MUA
         </a>
     </div>
     <div class="col-md-3" id="content-right">
-        <div class="panel-body" id="body-content-right">
-            <div class="panel-info">
-                <img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block" />
-                <h5>Thập cẩm sấy, dòng phổ thông </h5>
-                <h5>75.500 VND </h5>
-            </div>
-            <div class="panel-info">
-                <img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block" />
-                <h5>Thập cẩm sấy, dòng phổ thông </h5>
-                <h5>75.500 VND </h5>
-            </div>
-            <div class="panel-info">
-                <img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block" />
-                <h5>Thập cẩm sấy, dòng phổ thông </h5>
-                <h5>75.500 VND </h5>
-            </div>
-            <div class="panel-info">
-                <img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block" />
-                <h5>Thập cẩm sấy, dòng phổ thông </h5>
-                <h5>75.500 VND </h5>
-            </div>
-            <div class="panel-info">
-                <img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block" />
-                <h5>Thập cẩm sấy, dòng phổ thông </h5>
-                <h5>75.500 VND </h5>
-            </div>
-        </div>
+        @Html.Action("PartialSanPhamBanChayForDetail", "Product", new { number = 10 })
     </div>
-</div>
-<br> 
+    <br>
