@@ -28,10 +28,22 @@
                 </div>
             }
         }
-        <div class="menu">
-            <a href="/ClientAccount/SignIn">
-                Đăng Nhập
-            </a>
-        </div>
+        @if (ViewBag.onLogin == true)
+        {
+            <div class="menu">
+                <a href="/ClientAccount/InfoUser?idUser=@ViewBag.UserId">
+                    Xin chào @ViewBag.UserName
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="menu">
+                <a href="/ClientAccount/SignIn">
+                    Đăng Nhập
+                </a>
+            </div>
+        }
+
     </nav>
 </div>

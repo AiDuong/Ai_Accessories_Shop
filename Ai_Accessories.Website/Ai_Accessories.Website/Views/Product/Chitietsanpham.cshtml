@@ -18,35 +18,101 @@
     }
 </style>
 <div class="row">
-    <div class="col-md-9" id="content-left">
+    <div class="col-md-9" id="content-left"> 
         <div class="panel-body">
-            <p>
-                Tên sản phẩm:  @Model.TenSP
-            </p>
-            <p>
-                Giá sản phẩm:  @Model.Gia
-            </p>
-            <p>
-                Mô tả thông tin : @Model.ThongtinSP
-            </p>
-            <p>
-                Tình trạng hàng : @Model.Conhang
-            </p>
-            <p>
-                Số hàng đã bán : @Model.Solanmua
-            </p>
-            <img src="~/Content/images/@Model.HinhanhSP" />
-        </div>
+                <div class="col-md-6">
+                    <img src="~/Content/images/@Model.HinhanhSP" style="width:100%" />
+                </div>
+                <div class="col-md-6">
+                    <h2>@Model.TenSP</h2>
+                    <div id="price" class="ega-show-after" style="display: block;">
+                        <strong class="ega-pr-page-price">
+                            @String.Format("{0:n0}", Model.Gia) VNĐ
+                        </strong> <del class="ega-main-color" style="display: inline-block;"></del>
+                        @if (Model.Conhang == true)
+                        {
+                            <span class="ega-avai-pr-page">Còn hàng </span>
+                        }
+                        else
+                        {
+                            <span class="ega-avai-pr-page">Hết hàng</span>
+                        }
+                    </div>
+                    <div id="giao-hang">
+                        <ul class="ega-pr-page-ul-policies">
+                            <li>
+                                <div class="ega-giao-hang-pr-page">
+                                    <h4>
+                                        <span class="ega-triangle-left">►</span>
+                                        Giao hàng:
+                                    </h4>
+                                    <p>
+                                        Giao hàng toàn quốc
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ega-giao-hang-pr-page">
+                                    <h4>
+                                        <span class="ega-triangle-left">►</span>
+                                        Đổi trả:
+                                    </h4>
+                                    <p>
+                                        Đổi trả miễn phí trong vòng 30 ngày khi phát hiện lỗi từ nhà sản xuất. Liên lạc tổng đài 19009065 để được hỗ trợ
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ega-giao-hang-pr-page">
+                                    <h4>
+                                        <span class="ega-triangle-left">►</span>
+                                        Thanh toán:
+                                    </h4>
+                                    <p>
+                                        Thanh toán tiền mặt khi nhận hàng, thanh toán chuyển khoản ngân hàng, thanh toán online
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="qty">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <label class="ega-option-title">Số lượng</label>
+                            </div>
+                            <div class="col-xs-8">
+                                <div class="input-group ega-qty-control">
+                                    <div class="input-group-addon" onclick="MinusQuality()">-</div>
+                                    <input type="text" name="quantity" maxlength="4" id="InputAmount" value="1" class="form-control">
+                                    <div class="input-group-addon" onclick="PlusQuality()">+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="btn" class="ega-btn-product-div">
+                        <button type="submit" title="Cho vào giỏ hàng" class="btn ega-pr-page-add-cart">
+                            <b>Cho vào giỏ hàng </b>
+                        </button>
+                    </div>
+                </div>
+            </div> 
         <br />
         @Html.Action("PartialSanPhamLienQuan", "Product", new { number = 10 })
-    </div>
-
-    <div id="Datmua">
-        <a href="@Url.Action("Themgiohang","Giohang", new {@iId = @Model.Id, @sURL = Request.Url.ToString() })"
-           ĐẶT MUA
-        </a>
     </div>
     <div class="col-md-3" id="content-right">
         @Html.Action("PartialSanPhamBanChayForDetail", "Product", new { number = 10 })
     </div>
     <br>
+</div>
+<script>
+    function PlusQuality(){
+        var currentAmout = $("#InputAmount").val();
+        var after = parseInt(currentAmout) + 1;
+        $("#InputAmount").val(after);
+    }
+    function MinusQuality() {
+        var currentAmout = $("#InputAmount").val();
+        var after = parseInt(currentAmout) - 1;
+        $("#InputAmount").val(after);
+    }
+</script>

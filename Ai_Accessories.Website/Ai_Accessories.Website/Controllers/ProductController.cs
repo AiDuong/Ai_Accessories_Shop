@@ -68,6 +68,14 @@ namespace Ai_Accessories.Website.Controllers
 
         public ActionResult Menu()
         {
+            var onLogin = Session["Client"];
+            if(onLogin != null)
+            {
+                var idUser = Session[onLogin.ToString()];
+                ViewBag.onLogin = true;
+                ViewBag.UserName = onLogin.ToString();
+                ViewBag.UserId = idUser.ToString();
+            }
             var product = menu.Get();
             return PartialView(product);
         }

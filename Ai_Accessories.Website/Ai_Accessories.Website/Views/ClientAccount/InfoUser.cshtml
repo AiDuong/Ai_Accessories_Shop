@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Thông tin khách hàng";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+} 
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-4"></div>
+        <span class="col-md-6"><strong>Tên tài khoản:</strong> @Model.AccountName</span>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-4"></div>
+        <span class="col-md-6"><strong>Tên của bạn:</strong> @Model.ClientName</span>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-4"></div>
+        <span class="col-md-6"><strong>Số điện thoại nhận hàng:</strong> @Model.PhoneNumber</span>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-4"></div>
+        <span class="col-md-6"><strong>Địa chỉ mail:</strong>  @Model.Email</span>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-4"></div>
+        <span class="col-md-6"><strong>Địa chỉ nhận hàng:</strong> @Model.Address</span>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4"></div>
+        <span class="col-md-6"><strong>Ghi chú:</strong> @Model.Note</span>
+    </div>
+</div>

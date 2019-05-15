@@ -37,4 +37,53 @@ h1, h2, h3, h4, h5, a, p {
 .title-collection {
     font-size: 19px; 
     padding: 15px 0px 0px 15px;
-} 
+}
+.ega-pr-page-ul-policies {
+    margin: 5px 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #edede4;
+    border-radius: 3px;
+    background: #fbfbfb;
+}
+    .ega-pr-page-ul-policies > li {
+        border-bottom: 1px solid #edede4;
+        padding: 5px;
+    }
+.ega-giao-hang-pr-page > h4 {
+    margin: 2px 0;
+    font-weight: bold;
+    font-size: 12px;
+}
+.ega-giao-hang-pr-page > p {
+    font-size: 12px;
+    padding-left: 15px;
+    margin:0px 0px;
+}
+.ega-qty-control {
+    max-width: 120px;
+}
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.ega-qty-control > .input-group-addon:hover {
+    cursor: pointer;
+}
+.btn.ega-pr-page-add-cart {
+    background-color: #e89c3b;
+    color: #fff;
+    border-radius: 50px;
+    width: 100%;
+    outline: none;
+}
+.ega-btn-product-div {
+    margin: 25px 0;
+}

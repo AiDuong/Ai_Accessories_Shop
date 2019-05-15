@@ -66,7 +66,7 @@ namespace Ai_Accessories.Website.Models
         }
 
         public SANPHAM GetDetailProduct(int idProduct)
-        {
+        { 
             return db.SANPHAMs.FirstOrDefault(f => f.Id == idProduct);
         }
 

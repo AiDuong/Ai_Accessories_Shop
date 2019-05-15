@@ -17576,12 +17576,42 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill .desc-wrapper
     -o-transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out;
     transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out
 }
+.enable-nav-button #headerNav nav > div:not(.folder):last-child span, .enable-nav-button #sidecarNav nav > div:not(.folder):last-child span {
+    font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: myriad-pro;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-left: 1em;
+    padding: 1em 1.5em !important;
+    display: block;
+    background-color: #fff;
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+    color: #fff;
+    -webkit-transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out;
+    -moz-transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out;
+    -ms-transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out;
+    -o-transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out;
+    transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out
+}
 
     .enable-nav-button #headerNav nav > div:not(.folder):last-child a:hover, .enable-nav-button #sidecarNav nav > div:not(.folder):last-child a:hover {
         background-color: rgba(255,255,255,.8)
     }
 
 .nav-button-style-outline.enable-nav-button #headerNav nav > div:not(.folder):last-child a, .nav-button-style-outline.enable-nav-button #sidecarNav nav > div:not(.folder):last-child a {
+    background-color: transparent;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    border: 2px solid #fff;
+    color: #fff
+}
+.nav-button-style-outline.enable-nav-button #headerNav nav > div:not(.folder):last-child span, .nav-button-style-outline.enable-nav-button #sidecarNav nav > div:not(.folder):last-child span {
     background-color: transparent;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;

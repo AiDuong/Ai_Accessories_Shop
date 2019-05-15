@@ -31,7 +31,8 @@ namespace Ai_Accessories.Website.Controllers
                 CLIENTACCOUNT client = await db.CLIENTACCOUNTs.SingleOrDefaultAsync(f => f.AccountName == account && f.PassWord == password);
                 if (client != null)
                 {
-                    Session["Client"] = client;
+                    Session["Client"] = client.AccountName;
+                    Session[client.AccountName.ToString().Trim()] = client.Id;
                     return RedirectToAction("Index", "Product");
                 }
                 else
@@ -66,6 +67,29 @@ namespace Ai_Accessories.Website.Controllers
             }
 
             return View(cLIENTACCOUNT);
-        } 
+        }
+
+        [HttpGet]
+        public ActionResult InfoUser(int? idUser)
+        {
+            //var onLogin = Session["Client"];
+            //if(idUser == null)
+            //{
+            //    return RedirectToAction("Index", "Product");
+            //}
+            //else
+            //{
+            //    if (onLogin != null)
+            //    {
+                    CLIENTACCOUNT model = db.CLIENTACCOUNTs.Find(idUser);
+
+                    return View(model);
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("Index", "Product");
+            //    }
+            //}
+        }
     }
 }
