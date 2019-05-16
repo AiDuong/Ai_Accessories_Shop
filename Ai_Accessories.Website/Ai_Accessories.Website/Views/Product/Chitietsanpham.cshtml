@@ -29,13 +29,9 @@
                         <strong class="ega-pr-page-price">
                             @String.Format("{0:n0}", Model.Gia) VNĐ
                         </strong> <del class="ega-main-color" style="display: inline-block;"></del>
-                        @if (Model.Conhang == true)
-                        {
-                            <span class="ega-avai-pr-page">Còn hàng </span>
-                        }
-                        else
-                        {
-                            <span class="ega-avai-pr-page">Hết hàng</span>
+                        @if (Model.Conhang != true)
+                        { 
+                            <span class="ega-avai-pr-page" style="color:red; font-size:20px"><strong>Cháy hàng</strong></span>
                         }
                     </div>
                     <div id="giao-hang">
@@ -75,27 +71,30 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="qty">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <label class="ega-option-title">Số lượng</label>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="input-group ega-qty-control">
-                                    <div class="input-group-addon" onclick="MinusQuality()">-</div>
-                                    <input type="text" name="quantity" maxlength="4" id="InputAmount" value="1" class="form-control">
-                                    <div class="input-group-addon" onclick="PlusQuality()">+</div>
+                    @if (Model.Conhang == true)
+                     {
+                        <div id="qty">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label class="ega-option-title">Số lượng</label>
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="input-group ega-qty-control">
+                                        <div class="input-group-addon" onclick="MinusQuality()">-</div>
+                                        <input type="text" name="quantity" maxlength="4" id="InputAmount" value="1" class="form-control">
+                                        <div class="input-group-addon" onclick="PlusQuality()">+</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="btn" class="ega-btn-product-div">
-                        <button type="submit" title="Cho vào giỏ hàng" class="btn ega-pr-page-add-cart">
-                            <b>Cho vào giỏ hàng </b>
-                        </button>
-                    </div>
+                        <div id="btn" class="ega-btn-product-div">
+                            <button type="submit" title="Cho vào giỏ hàng" class="btn ega-pr-page-add-cart">
+                                <b>Cho vào giỏ hàng </b>
+                            </button>
+                        </div>
+                     }
                 </div>
-            </div> 
+        </div> 
         <br />
         @Html.Action("PartialSanPhamLienQuan", "Product", new { number = 10 })
     </div>
@@ -113,6 +112,7 @@
     function MinusQuality() {
         var currentAmout = $("#InputAmount").val();
         var after = parseInt(currentAmout) - 1;
+        after = after < 0 ? 0 : after;
         $("#InputAmount").val(after);
     }
 </script>
