@@ -16,87 +16,103 @@
     #PsanPhamLienQuan img {
         height: 232px
     }
+    #history {
+        background-color: white
+    }
 </style>
 <div class="row">
-    <div class="col-md-9" id="content-left"> 
+    <div class="col-md-9" id="content-left">
         <div class="panel-body">
-                <div class="col-md-6">
-                    <img src="~/Content/images/@Model.HinhanhSP" style="width:100%" />
+            <div class="col-md-6">
+                <img id="imageProduct" src="~/Content/images/@Model.HinhanhSP" style="width:100%" />
+            </div>
+            <div class="col-md-6">
+                <h2 id="nameProduct">@Model.TenSP</h2>
+                <div id="price" class="ega-show-after" style="display: block;">
+                    <strong class="ega-pr-page-price" id="priceProduct">
+                        @String.Format("{0:n0}", Model.Gia) VNĐ
+                    </strong>
+                    <del class="ega-main-color" style="display: inline-block;"></del>
+                    @if (Model.Conhang != true)
+                    {
+                        <span class="ega-avai-pr-page" style="color:red; font-size:20px"><strong>Cháy hàng</strong></span>
+                    }
                 </div>
-                <div class="col-md-6">
-                    <h2>@Model.TenSP</h2>
-                    <div id="price" class="ega-show-after" style="display: block;">
-                        <strong class="ega-pr-page-price">
-                            @String.Format("{0:n0}", Model.Gia) VNĐ
-                        </strong> <del class="ega-main-color" style="display: inline-block;"></del>
-                        @if (Model.Conhang != true)
-                        { 
-                            <span class="ega-avai-pr-page" style="color:red; font-size:20px"><strong>Cháy hàng</strong></span>
-                        }
-                    </div>
-                    <div id="giao-hang">
-                        <ul class="ega-pr-page-ul-policies">
-                            <li>
-                                <div class="ega-giao-hang-pr-page">
-                                    <h4>
-                                        <span class="ega-triangle-left">►</span>
-                                        Giao hàng:
-                                    </h4>
-                                    <p>
-                                        Giao hàng toàn quốc
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="ega-giao-hang-pr-page">
-                                    <h4>
-                                        <span class="ega-triangle-left">►</span>
-                                        Đổi trả:
-                                    </h4>
-                                    <p>
-                                        Đổi trả miễn phí trong vòng 30 ngày khi phát hiện lỗi từ nhà sản xuất. Liên lạc tổng đài 19009065 để được hỗ trợ
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="ega-giao-hang-pr-page">
-                                    <h4>
-                                        <span class="ega-triangle-left">►</span>
-                                        Thanh toán:
-                                    </h4>
-                                    <p>
-                                        Thanh toán tiền mặt khi nhận hàng, thanh toán chuyển khoản ngân hàng, thanh toán online
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    @if (Model.Conhang == true)
-                     {
-                        <div id="qty">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <label class="ega-option-title">Số lượng</label>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="input-group ega-qty-control">
-                                        <div class="input-group-addon" onclick="MinusQuality()">-</div>
-                                        <input type="text" name="quantity" maxlength="4" id="InputAmount" value="1" class="form-control">
-                                        <div class="input-group-addon" onclick="PlusQuality()">+</div>
-                                    </div>
+                <div id="giao-hang">
+                    <ul class="ega-pr-page-ul-policies">
+                        <li>
+                            <div class="ega-giao-hang-pr-page">
+                                <h4>
+                                    <span class="ega-triangle-left">►</span>
+                                    Giao hàng:
+                                </h4>
+                                <p>
+                                    Giao hàng toàn quốc
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ega-giao-hang-pr-page">
+                                <h4>
+                                    <span class="ega-triangle-left">►</span>
+                                    Đổi trả:
+                                </h4>
+                                <p>
+                                    Đổi trả miễn phí trong vòng 30 ngày khi phát hiện lỗi từ nhà sản xuất. Liên lạc tổng đài 19009065 để được hỗ trợ
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ega-giao-hang-pr-page">
+                                <h4>
+                                    <span class="ega-triangle-left">►</span>
+                                    Thanh toán:
+                                </h4>
+                                <p>
+                                    Thanh toán tiền mặt khi nhận hàng, thanh toán chuyển khoản ngân hàng, thanh toán online
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                @if (Model.Conhang == true)
+                {
+                    <div id="qty">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <label class="ega-option-title">Số lượng</label>
+                            </div>
+                            <div class="col-xs-8">
+                                <div class="input-group ega-qty-control">
+                                    <div class="input-group-addon" onclick="MinusQuality()">-</div>
+                                    <input type="text" name="quantity" maxlength="4" id="InputAmount" value="1" class="form-control">
+                                    <div class="input-group-addon" onclick="PlusQuality()">+</div>
                                 </div>
                             </div>
                         </div>
-                        <div id="btn" class="ega-btn-product-div">
-                            <button type="submit" title="Cho vào giỏ hàng" class="btn ega-pr-page-add-cart">
-                                <b>Cho vào giỏ hàng </b>
-                            </button>
-                        </div>
-                     }
-                </div>
-        </div> 
+                    </div>
+                    <div id="btn" class="ega-btn-product-div">
+                        <button type="submit" title="Cho vào giỏ hàng" class="btn ega-pr-page-add-cart">
+                            <b>Cho vào giỏ hàng </b>
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
         <br />
         @Html.Action("PartialSanPhamLienQuan", "Product", new { number = 10 })
+        <br />
+        <div id="history" class="container-fluid hidden">
+            <h2 class="title-collection">Sản phẩm đã xem qua</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="carousel carousel-showmanymoveone slide itemslider" id="PsanPhamLienQuan">
+                        <div class="carousel-inner" id="listProductHitory">  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-3" id="content-right">
         @Html.Action("PartialSanPhamBanChayForDetail", "Product", new { number = 10 })
@@ -104,15 +120,147 @@
     <br>
 </div>
 <script>
-    function PlusQuality(){
+    //cộng số lượng sản phẩm lên 1
+    function PlusQuality() {
+
+        //lấy số lượng hiện tại
         var currentAmout = $("#InputAmount").val();
-        var after = parseInt(currentAmout) + 1;
+
+        //cộng số lượng sản phẩm lên 1
+        var after = parseInt(currentAmout) + 1; 
+
+        //sau khi cộng thì gán giá trị trở lại
         $("#InputAmount").val(after);
     }
+
+    //giảm số lượng sản phẩm xuống 1
     function MinusQuality() {
+
+         //lấy số lượng hiện tại
         var currentAmout = $("#InputAmount").val();
+
+        //giảm số lượng sản phẩm xuống 1
         var after = parseInt(currentAmout) - 1;
+
+        //nếu số lượng = 0 sẽ luôn gán bằng 0( số lượng không được âm)
         after = after < 0 ? 0 : after;
+
+        //sau khi trừ thì gán giá trị trở lại
         $("#InputAmount").val(after);
     }
+
+    //code chạy mỗi lần load page
+    // khởi tạo mảng trống
+    var Storage = [];
+
+    // kiểm tra xem kho HistoryUser có được tạo chưa
+    // nếu đã tạo kho rồi thì đồng bộ dữ liệu đổ với mảng
+    // tạo một kho có tên là HistoryUser(có thể tạo thêm kho khác với tên khác. Nếu trùng tên sẽ ghi đè)
+    if (localStorage['HistoryUser'] != undefined) {
+        //dữ liệu trong kho chuyển thành kiểu JSON và gán bằng mảng đã khởi tạo ở trên
+        Storage = JSON.parse(localStorage['HistoryUser']);
+    }  
+    $(document).ready(function () { 
+        //trường hợp chưa có kho
+        if (localStorage['HistoryUser'] != undefined) {
+            //kiểm tra xem nó có trung lấp với những sản phẩm đã lưu hay không
+            var isDuplicate = checkDuplicate();
+            //nếu trả về là False, tiến hành lưu sản phẩm và kho
+            checkExpired();
+            loadDataInStorage();
+            if (!isDuplicate) {
+                saveInfoProduct();
+            }
+            //load data trong kho và show ra giao diện
+            
+        } else {
+            saveInfoProduct();
+        }
+    });
+
+    function checkExpired() { 
+        var now = new Date(); 
+        for (var i = 0; i < Storage.length; i++) { 
+            var timeExpire = Storage[i].TimeExpire;  
+            if (timeExpire < now) {  
+                Storage.splice(i, 1);
+            }
+        }  
+    }
+
+    //kiểm tra xem trong kho đã lưu sản phẩm chưa
+    function checkDuplicate() { 
+        // tạo một biến có ý nghĩa là không duplicate
+        var isDuplicate = false;
+        //lấy id sản phẩm hiện tại
+        var IdCurrentProduct = location.pathname.split('/')[2].trim();
+        //thực hiện quét toàn bộ dữ liệu trong kho
+        for (var i = 0; i < Storage.length; i++) {
+            //id của 1 sản phẩm trong kho
+            var id = Storage[i].IdProduct;
+            //nếu giống với sản phẩm hiện tại
+            if (IdCurrentProduct == id) {
+                isDuplicate = true;
+                //kết thúc vòng lặp tại đây, không cần quét tiếp 
+                break;
+            } 
+        } 
+
+        return isDuplicate;
+    }  
+
+    //lưu info product hiện tại vào kho
+    function saveInfoProduct() {
+        //lấy các thông tin cần thiết
+        var url = location.pathname.trim();
+        var id = location.pathname.split('/')[2].trim();
+        var image = $("#imageProduct").attr("src").trim();
+        var name = $("#nameProduct").text().trim();
+        var pirce = $("#priceProduct").text().toString().trim();
+
+        //tạo thành product kiểu dữ liệu JSON
+        var now = new Date();
+        var product = {
+            'IdProduct': id,
+            'TimeExpire': now.addOneHours(),
+            'Infomation': element = [{
+                'url': url,
+                'image': image,
+                'name': name,
+                'pirce': pirce,
+            }]
+        };
+        //đẩy product vào mảng đã khởi tạo ban đầu
+        Storage.push(product);
+
+        //check xem có hỗ trợ bộ nhớ trình duyệt localStorage không?
+        if (localStorage) {
+            //tiến hành đưa dữ liệu vào kho, trình duyệt sẽ ghi đè lên dữ liệu đã tồn tại trong kho
+            localStorage['HistoryUser'] = JSON.stringify(Storage); 
+        } 
+    }
+
+    //load data trong kho và show ra giao diện
+    function loadDataInStorage() {
+        $("#history").removeClass("hidden");
+        var $template = $("#listProductHitory");
+        for (var i = 0; i < Storage.length; i++) { 
+            var html = ("<div class='item active'>"+
+                "<div class='col-xs-12 col-sm-6 col-md-3'>"+
+                "<a href='" + Storage[i].Infomation[0].url + "'>"+
+                "<img src='" + Storage[i].Infomation[0].image + "' class='img-responsive center-block'>"+
+                    "</a>"+
+                "<h4 class='text-center'>" + Storage[i].Infomation[0].name + "</h4>"+
+                "<h5 class='text-center'>" + Storage[i].Infomation[0].pirce + "</h5>" +
+                "</div></div>");
+            $template.append(html);
+            html = "";
+        } 
+    } 
+ 
+    Date.prototype.addOneHours = function () {
+        this.setTime(this.getTime() + (1 * 60 * 60 * 1000));
+        return this;
+    }
+
 </script>
