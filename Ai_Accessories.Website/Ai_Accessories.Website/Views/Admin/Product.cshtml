@@ -24,7 +24,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2 style="font-weight:bold; color: black"><span class="fa fa-shopping-basket" style="color:black"></span> PRODUCT</h2>
+                <h2 style="font-weight:bold; color: black"><span class="fa fa-shopping-basket" style="color:black"></span> SẢN PHẨM</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li style="float:right">
                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -35,22 +35,22 @@
             <div class="x_content">
                 <p class="text-muted font-13 m-b-30">
                     <a class="btn btn-success pull-right" href="#">
-                    <span class="fa fa-plus"></span> New Product</a>
+                    <span class="fa fa-plus"></span> Sản Phẩm Mới</a>
                 </p>
-                <span>Total: @ViewBag.TotalProduct products</span>
+                <span>Tổng: @ViewBag.TotalProduct sản phẩm</span>
                 <div class="clearfix"></div>
                 <hr />
                 <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
                     <thead>
                         <tr> 
-                            <th width="40px">Code</th>
-                            <th width="100px">Image</th>
-                            <th>Name</th>
-                            <th>Information</th>
-                            <th>Type</th>
-                            <th>Price</th>
-                            <th>Created Date</th> 
-                            <th colspan="3">Action</th>
+                            <th width="40px">STT</th>
+                            <th width="100px">Hình Ảnh</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Mô tả</th>
+                            <th>Loại</th>
+                            <th>Giá</th>
+                            <th> Ngày Đăng</th> 
+                            <th colspan="3">Thay Đổi</th>
                         </tr>
                     </thead>
                     <tbody> 
@@ -67,10 +67,10 @@
                                 <td style="text-align:right">@string.Format("{0:n0}", product.Gia)</td>
                                 <td style="text-align:center">@string.Format("{0:dd/MM/yyyy}", product.Ngaydang)</td> 
                                 <td style="text-align:center">
-                                    <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                                    <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                                 </td>
                                 <td style="text-align:center">
-                                    <a class="btn btn-success btn-sm" href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                                    <a class="btn btn-success btn-sm" href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
                                 </td>
                             </tr> 
                         }

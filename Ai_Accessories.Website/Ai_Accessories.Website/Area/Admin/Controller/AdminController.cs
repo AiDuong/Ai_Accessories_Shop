@@ -44,6 +44,7 @@ namespace Ai_Accessories.Website.Area.Admin.Controllers
         #endregion
         public ActionResult AddNewProduct()
         {
+            ViewBag.LoaiSP = new SelectList(db.LOAISPs, "Id", "TenloaiSP", null);
             return View();
         }
     }

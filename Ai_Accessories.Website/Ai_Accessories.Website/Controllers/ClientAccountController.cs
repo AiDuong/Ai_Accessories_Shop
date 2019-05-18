@@ -19,9 +19,10 @@ namespace Ai_Accessories.Website.Controllers
         // GET: CLIENTACCOUNTs 
         [HttpGet]
         public ActionResult SignIn()
-        { 
+        {
             return View();
         }
+
         public async Task<ActionResult> SignIn(FormCollection collection)
         {
             var account = collection["Account"];

@@ -108,6 +108,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="carousel carousel-showmanymoveone slide itemslider" id="PsanPhamLienQuan">
                         <div class="carousel-inner" id="listProductHitory">  
+                          
                         </div>
                     </div>
                 </div>
@@ -143,13 +144,13 @@
         var after = parseInt(currentAmout) - 1;
 
         //nếu số lượng = 0 sẽ luôn gán bằng 0( số lượng không được âm)
-        after = after < 0 ? 0 : after;
+        after = after < 1 ? 1 : after;
 
         //sau khi trừ thì gán giá trị trở lại
         $("#InputAmount").val(after);
     }
 
-    //code chạy mỗi lần load page
+    // code chạy mỗi lần load page
     // khởi tạo mảng trống
     var Storage = [];
 
@@ -160,29 +161,40 @@
         //dữ liệu trong kho chuyển thành kiểu JSON và gán bằng mảng đã khởi tạo ở trên
         Storage = JSON.parse(localStorage['HistoryUser']);
     }  
+
     $(document).ready(function () { 
-        //trường hợp chưa có kho
+        //trường hợp có kho
         if (localStorage['HistoryUser'] != undefined) {
-            //kiểm tra xem nó có trung lấp với những sản phẩm đã lưu hay không
-            var isDuplicate = checkDuplicate();
-            //nếu trả về là False, tiến hành lưu sản phẩm và kho
+
+            //kiểm tra hết hạn
             checkExpired();
+
+            //load data trong kho và show ra giao diện
             loadDataInStorage();
+
+            //kiểm tra xem nó có trung lấp với những sản phẩm đã lưu hay không
+            //nếu trả về là False, tiến hành lưu sản phẩm và kho
+            var isDuplicate = checkDuplicate(); 
             if (!isDuplicate) {
                 saveInfoProduct();
-            }
-            //load data trong kho và show ra giao diện
-            
+            } 
         } else {
             saveInfoProduct();
         }
     });
 
+    //kiểm tra xem phần tử hết hạn
     function checkExpired() { 
+        // giờ hiện tại
         var now = new Date(); 
+        //quét mảng Storage
         for (var i = 0; i < Storage.length; i++) { 
-            var timeExpire = Storage[i].TimeExpire;  
-            if (timeExpire < now) {  
+            //timeExpire là thời gian hết hạn được lưu ban đầu
+            var time = Storage[i].TimeExpire;
+            var timeExpire = new Date(time)
+            //nếu timeExpire bé hon giờ hiện tại thì xóa 
+            if (timeExpire < now) { 
+                //splice(index, deleteCount)
                 Storage.splice(i, 1);
             }
         }  
@@ -220,6 +232,7 @@
 
         //tạo thành product kiểu dữ liệu JSON
         var now = new Date();
+
         var product = {
             'IdProduct': id,
             'TimeExpire': now.addOneHours(),
@@ -230,6 +243,7 @@
                 'pirce': pirce,
             }]
         };
+
         //đẩy product vào mảng đã khởi tạo ban đầu
         Storage.push(product);
 

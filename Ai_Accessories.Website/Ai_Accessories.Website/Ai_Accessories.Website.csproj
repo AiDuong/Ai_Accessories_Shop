@@ -366,6 +366,7 @@
     <Content Include="Views\ClientAccount\Register.cshtml" />
     <Content Include="Views\ClientAccount\InfoUser.cshtml" />
     <Content Include="Views\ClientAccount\SignIn.cshtml" />
+	 <Content Include="Views\Admin\AddNewProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
