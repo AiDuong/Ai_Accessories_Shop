@@ -27,24 +27,27 @@ namespace Ai_Accessories.Website.Controllers
         {
             var account = collection["Account"];
             var password = collection["Password"];
-            if (!string.IsNullOrEmpty(account))
+
+            USER user = await db.USERs.SingleOrDefaultAsync(f => f.UserName == account && f.Password == password);
+            if(user != null)
+            {
+                return RedirectToAction("Product", "Admin");
+            }
+            else
             {
                 CLIENTACCOUNT client = await db.CLIENTACCOUNTs.SingleOrDefaultAsync(f => f.AccountName == account && f.PassWord == password);
                 if (client != null)
                 {
-                    Session["Client"] = client.AccountName;
-                    Session[client.AccountName.ToString().Trim()] = client.Id;
+                    Session["Client"] = client.ClientName;
+                    Session[client.ClientName.ToString().Trim()] = client.Id;
+
                     return RedirectToAction("Index", "Product");
                 }
                 else
                 {
                     return View();
                 }
-            }
-            else
-            {
-                return View();
-            }
+            }            
         }
 
         // GET: CLIENTACCOUNTs/Create
