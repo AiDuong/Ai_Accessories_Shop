@@ -28,21 +28,17 @@ namespace Ai_Accessories.Website.Controllers
         }
 
         // Thêm giỏ hàng
-        public ActionResult Themgiohang(int iId, string sURL)
+        public ActionResult Themgiohang(int idProduct, int quantity)
         {
             List<Giohang> lstGiohang = Laygiohang();
-            Giohang sanpham = lstGiohang.Find(n => n.iId == iId);
+            Giohang sanpham = lstGiohang.Find(n => n.iId == idProduct);
             if (sanpham == null)
             {
-                sanpham = new Giohang(iId);
+                sanpham = new Giohang(idProduct);
+                sanpham.iSoluong = quantity;
                 lstGiohang.Add(sanpham);
-                return Redirect(sURL);
             }
-            else
-            {
-                sanpham.iSoluong++;
-                return Redirect(sURL);
-            }
+            return RedirectToAction("Index","Product");
         }
 
         //Tổng số lượng
@@ -80,14 +76,60 @@ namespace Ai_Accessories.Website.Controllers
             ViewBag.Tongsoluong = Tongsoluong();
             ViewBag.Tongtien = Tongtien();
             return View(lstGiohang);
-        }
-
-        // Trang Giỏ hàng Partial View
-        public ActionResult GiohangPartial()
+        } 
+        public ActionResult XoaGioHang(int masp)
         {
-            ViewBag.Tongsoluong = Tongsoluong();
-            ViewBag.Tongtien = Tongtien();
-            return PartialView();
+            List<Giohang> lstGiohang = Laygiohang();
+            Giohang sampham = lstGiohang.SingleOrDefault(f => f.iId == masp);
+            if(sampham != null)
+            {
+                lstGiohang.RemoveAll(f => f.iId == masp);
+                return RedirectToAction("Giohang");
+            }
+            if(lstGiohang.Count == 0)
+            {
+                return RedirectToAction("Index", "Product");
+            }
+            return RedirectToAction("Giohang");
+        }
+        public ActionResult UpdateCart(int masp, FormCollection collection)
+        {
+            List<Giohang> lstGiohang = Laygiohang();
+            Giohang sampham = lstGiohang.SingleOrDefault(f => f.iId == masp);
+            if (sampham != null)
+            {
+                sampham.iSoluong = int.Parse(collection["quantity"].ToString());
+            }
+            return RedirectToAction("Giohang");
+        }
+        public ActionResult ThanhToan()
+        {
+            var onLogin = Session["Client"];
+            if(onLogin == null)
+            {
+                return RedirectToAction("SignIn", "ClientAccount");
+            }
+            else
+            {
+                List<Giohang> lstGiohang = Laygiohang();
+                if (lstGiohang.Count == 0)
+                {
+                    return RedirectToAction("Index", "Product");
+                }
+                ViewBag.Tongsoluong = Tongsoluong();
+                ViewBag.Tongtien = Tongtien(); 
+
+                return View(lstGiohang);
+            } 
+        }
+        public ActionResult HoanTat()
+        {
+            List<Giohang> lstGiohang = Laygiohang();
+            lstGiohang.Clear();
+            var userName = Session["Client"];
+            ViewBag.UserName = userName;
+
+            return View();
         }
     }
 }

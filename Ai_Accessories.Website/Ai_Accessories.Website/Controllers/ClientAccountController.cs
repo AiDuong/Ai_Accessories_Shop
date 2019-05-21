@@ -76,24 +76,24 @@ namespace Ai_Accessories.Website.Controllers
         [HttpGet]
         public ActionResult InfoUser(int? idUser)
         {
-            //var onLogin = Session["Client"];
-            //if(idUser == null)
-            //{
-            //    return RedirectToAction("Index", "Product");
-            //}
-            //else
-            //{
-            //    if (onLogin != null)
-            //    {
+            var onLogin = Session["Client"];
+            if (idUser == null)
+            {
+                return RedirectToAction("Index", "Product");
+            }
+            else
+            {
+                if (onLogin != null)
+                {
                     CLIENTACCOUNT model = db.CLIENTACCOUNTs.Find(idUser);
 
                     return View(model);
-            //    }
-            //    else
-            //    {
-            //        return RedirectToAction("Index", "Product");
-            //    }
-            //}
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Product");
+                }
+            }
         }
     }
 }

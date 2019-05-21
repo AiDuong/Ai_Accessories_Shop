@@ -83,7 +83,36 @@ h1, h2, h3, h4, h5, a, p {
     border-radius: 50px;
     width: 100%;
     outline: none;
-}
+} 
 .ega-btn-product-div {
     margin: 25px 0;
 }
+.ega-item-top-bar {
+    position: relative;
+}
+.ega-div-top-search {
+    background: #fff;
+    border-radius: 20px;
+}
+.ega-div-top-search > input[type="search"] {
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+    padding-right: 40px;
+}
+    .ega-div-top-search > button {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        margin-top: -10px;
+        background: none;
+        border: none;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        margin-top: -10px;
+        background: none;
+        border: none;
+    }

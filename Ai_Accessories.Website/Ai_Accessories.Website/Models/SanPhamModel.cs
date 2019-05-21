@@ -77,7 +77,7 @@ namespace Ai_Accessories.Website.Models
 
         public List<SANPHAM> GetVongtay(int number)
         {
-            return db.SANPHAMs.OrderByDescending(f=>f.Ngaydang).Where(f => f.LoaiSP == 8).Take(number).ToList();
+            return  db.SANPHAMs.OrderByDescending(f=>f.Ngaydang).Where(f => f.LoaiSP == 8).Take(number).ToList();
         }
 
         public List<SANPHAM> GetMockhoaPartial(int number)

@@ -31,13 +31,15 @@
     <div id="siteWrapper" class="clearfix" style="background-color:gray">
         <header id="header" class="show-on-scroll" role="banner">
             <div class="header-inner">
-                <div id="logoWrapper" class="wrapper" data-content-field="site-title">
-                    <h1 id="logoImage">
-                        <a href="/">
-                            @*logo*@
-                            @*<img src="//static1.squarespace.com/static/5b94a223506fbe722619b779/t/5b951526c2241b0779142025/1551331511998/?format=1500w"/>*@
-                        </a>
-                    </h1>
+                <div id="logoWrapper" class="wrapper ega-item-top-bar" data-content-field="site-title"> 
+                    <form class="ega-form-search-top" role="search" method="get" action="/Product/Search">
+                        <div class="ega-div-top-search">
+                            <input autocomplete="off" name="input" type="search" placeholder="Tìm kiếm sản phẩm">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </div>
+                    </form>  
                 </div>
                 <div id="headerNav">
                     @Html.Action("Menu", "Product")
@@ -82,6 +84,6 @@
     <br />
     <br />
     <br />
-</footer>
+    </footer>
 </body>
 </html>

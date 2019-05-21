@@ -16454,10 +16454,7 @@ li.filter {
         #header #headerNav {
             text-align: right
         }
-
-        #header #logoWrapper, #header #logoImage {
-            width: 150px
-        }
+         
 
         #header #siteTitleWrapper, #header #siteTitle {
             width: 220px

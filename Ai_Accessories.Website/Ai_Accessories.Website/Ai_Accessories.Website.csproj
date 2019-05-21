@@ -358,7 +358,6 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\Giohang\Giohang.cshtml" />
-    <Content Include="Views\Giohang\GiohangPartial.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
@@ -366,7 +365,10 @@
     <Content Include="Views\ClientAccount\Register.cshtml" />
     <Content Include="Views\ClientAccount\InfoUser.cshtml" />
     <Content Include="Views\ClientAccount\SignIn.cshtml" />
-	 <Content Include="Views\Admin\AddNewProduct.cshtml" />
+    <Content Include="Views\Admin\AddNewProduct.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Giohang\ThanhToan.cshtml" />
+    <Content Include="Views\Giohang\HoanTat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

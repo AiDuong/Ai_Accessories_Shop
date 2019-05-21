@@ -20,6 +20,7 @@
         background-color: white
     }
 </style>
+
 <div class="row">
     <div class="col-md-9" id="content-left">
         <div class="panel-body">
@@ -27,76 +28,79 @@
                 <img id="imageProduct" src="~/Content/images/@Model.HinhanhSP" style="width:100%" />
             </div>
             <div class="col-md-6">
-                <h2 id="nameProduct">@Model.TenSP</h2>
-                <div id="price" class="ega-show-after" style="display: block;">
-                    <strong class="ega-pr-page-price" id="priceProduct">
-                        @String.Format("{0:n0}", Model.Gia) VNĐ
-                    </strong>
-                    <del class="ega-main-color" style="display: inline-block;"></del>
-                    @if (Model.Conhang != true)
+                <form action="/Giohang/Themgiohang" method="post">
+                    <input class="hidden" name="idProduct" value="@Model.Id"/>
+                    <h2 id="nameProduct">@Model.TenSP</h2>
+                    <div id="price" class="ega-show-after" style="display: block;">
+                        <strong class="ega-pr-page-price" id="priceProduct">
+                            @String.Format("{0:n0}", Model.Gia) VNĐ
+                        </strong>
+                        <del class="ega-main-color" style="display: inline-block;"></del>
+                        @if (Model.Conhang != true)
+                        {
+                            <span class="ega-avai-pr-page" style="color:red; font-size:20px"><strong>Cháy hàng</strong></span>
+                        }
+                    </div>
+                    <div id="giao-hang">
+                        <ul class="ega-pr-page-ul-policies">
+                            <li>
+                                <div class="ega-giao-hang-pr-page">
+                                    <h4>
+                                        <span class="ega-triangle-left">►</span>
+                                        Giao hàng:
+                                    </h4>
+                                    <p>
+                                        Giao hàng toàn quốc
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ega-giao-hang-pr-page">
+                                    <h4>
+                                        <span class="ega-triangle-left">►</span>
+                                        Đổi trả:
+                                    </h4>
+                                    <p>
+                                        Đổi trả miễn phí trong vòng 30 ngày khi phát hiện lỗi từ nhà sản xuất. Liên lạc tổng đài 19009065 để được hỗ trợ
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ega-giao-hang-pr-page">
+                                    <h4>
+                                        <span class="ega-triangle-left">►</span>
+                                        Thanh toán:
+                                    </h4>
+                                    <p>
+                                        Thanh toán tiền mặt khi nhận hàng, thanh toán chuyển khoản ngân hàng, thanh toán online
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    @if (Model.Conhang == true)
                     {
-                        <span class="ega-avai-pr-page" style="color:red; font-size:20px"><strong>Cháy hàng</strong></span>
-                    }
-                </div>
-                <div id="giao-hang">
-                    <ul class="ega-pr-page-ul-policies">
-                        <li>
-                            <div class="ega-giao-hang-pr-page">
-                                <h4>
-                                    <span class="ega-triangle-left">►</span>
-                                    Giao hàng:
-                                </h4>
-                                <p>
-                                    Giao hàng toàn quốc
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="ega-giao-hang-pr-page">
-                                <h4>
-                                    <span class="ega-triangle-left">►</span>
-                                    Đổi trả:
-                                </h4>
-                                <p>
-                                    Đổi trả miễn phí trong vòng 30 ngày khi phát hiện lỗi từ nhà sản xuất. Liên lạc tổng đài 19009065 để được hỗ trợ
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="ega-giao-hang-pr-page">
-                                <h4>
-                                    <span class="ega-triangle-left">►</span>
-                                    Thanh toán:
-                                </h4>
-                                <p>
-                                    Thanh toán tiền mặt khi nhận hàng, thanh toán chuyển khoản ngân hàng, thanh toán online
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                @if (Model.Conhang == true)
-                {
-                    <div id="qty">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <label class="ega-option-title">Số lượng</label>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="input-group ega-qty-control">
-                                    <div class="input-group-addon" onclick="MinusQuality()">-</div>
-                                    <input type="text" name="quantity" maxlength="4" id="InputAmount" value="1" class="form-control">
-                                    <div class="input-group-addon" onclick="PlusQuality()">+</div>
+                        <div id="qty">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label class="ega-option-title">Số lượng</label>
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="input-group ega-qty-control">
+                                        <div class="input-group-addon" onclick="MinusQuality()">-</div>
+                                        <input type="text" name="quantity" maxlength="4" id="InputAmount" value="1" class="form-control">
+                                        <div class="input-group-addon" onclick="PlusQuality()">+</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="btn" class="ega-btn-product-div">
-                        <button type="submit" title="Cho vào giỏ hàng" class="btn ega-pr-page-add-cart">
-                            <b>Cho vào giỏ hàng </b>
-                        </button>
-                    </div>
-                }
+                        <div id="btn" class="ega-btn-product-div">
+                            <button type="submit" title="Cho vào giỏ hàng" class="btn ega-pr-page-add-cart">
+                                <b>Cho vào giỏ hàng </b>
+                            </button>
+                        </div>
+                    }
+                </form> 
             </div>
         </div>
         <br />
@@ -187,13 +191,13 @@
     function checkExpired() { 
         // giờ hiện tại
         var now = new Date(); 
-        //quét mảng Storage
+        //quét mảng Storage 
         for (var i = 0; i < Storage.length; i++) { 
             //timeExpire là thời gian hết hạn được lưu ban đầu
             var time = Storage[i].TimeExpire;
-            var timeExpire = new Date(time)
+            var timeExpire = new Date(time);
             //nếu timeExpire bé hon giờ hiện tại thì xóa 
-            if (timeExpire < now) { 
+            if (timeExpire > now) { 
                 //splice(index, deleteCount)
                 Storage.splice(i, 1);
             }

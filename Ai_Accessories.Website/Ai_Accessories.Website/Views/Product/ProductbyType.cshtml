@@ -1,25 +1,46 @@
 ﻿@model IEnumerable<Ai_Accessories.Website.Models.SANPHAM>
-<div>
-    @foreach (var product in Model)
-    {
-
-        <p>
-            Tên sản phẩm:  @product.TenSP
-        </p>
-        <p>
-            Giá sản phẩm: @product.Gia
-        </p>
-        <p>
-            Tình trạng sản phẩm: @product.Conhang
-        </p>
-        <p>
-            Thông tin sản phẩm: @product.ThongtinSP
-        </p>
-        <img src="~/Content/images/@product.HinhanhSP" />
+@{
+    ViewBag.Title = "Sản phẩm theo loại";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+<div class="row">
+    <div class="col-md-9" id="content-left">
+        <div class="panel-body">
+            @if (ViewBag.TotalProduct > 0)
+            {
+                foreach (var product in Model)
+                {
+                    <div class="col-md-4">
+                        <a href="/chi-tiet-san-pham/@product.Id">
+                            <img src="~/Content/images/@product.HinhanhSP" class="img-responsive center-block">
+                        </a>
+                        <h4 class="text-center">@product.TenSP</h4>
+                        <h5 class="text-center">@String.Format("{0:n0}", product.Gia) VNĐ</h5>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="text-center">
+                    <p>Không tìm thấy sản phẩm nào...</p>
+                </div>
+            }
+        </div>
         <br />
-    }
+        <div id="history" class="container-fluid hidden">
+            <h2 class="title-collection">Sản phẩm đã xem qua</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="carousel carousel-showmanymoveone slide itemslider" id="PsanPhamLienQuan">
+                        <div class="carousel-inner" id="listProductHitory">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3" id="content-right">
+        @Html.Action("PartialSanPhamBanChayForDetail", "Product", new { number = 10 })
+    </div>
 </div>
-<div class="col-md-3" id="content-right">
-    @Html.Action("PartialSanPhamBanChayForDetail", "Product", new { number = 10 })
-</div>
-<br>

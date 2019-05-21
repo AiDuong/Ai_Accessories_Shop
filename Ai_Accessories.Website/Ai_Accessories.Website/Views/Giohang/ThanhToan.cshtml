@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Ai_Accessories.Website.Models.Giohang>
+@{
+    ViewBag.Title = "Xác nhận đơn hành";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+
+<h2 style="text-align:center"> Xác Nhận Giỏ Hàng </h2> 
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td> Tên sản phẩm </td>
+        <td> Hình ảnh </td>
+        <td> Số lượng </td>
+        <td> Đơn giá </td>
+        <td> Thành tiền </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold ">
+            <td> @item.sTenSP </td>
+            <td><img src="~/Content/images/@item.sHinhanhSP" style="width: 200px" /></td>
+            @using (Html.BeginForm("UpdateCart", "Giohang", new { @masp = @item.iId }))
+            {
+            <td> @item.iSoluong </td>
+                <td> @String.Format("{0:0,0}", item.dGia) </td>
+                <td> @String.Format("{0:0,0}", item.dThanhtien) </td>
+            }
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:center; color:red">
+        <td colspan="4"> Số lượng sản phẩm : @ViewBag.Tongsoluong </td>
+        <td colspan="4"> Tổng tiền : @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ </td> 
+    </tr>
+</table>
+<br />
+<a class="btn btn-primary pull-right" href="/Giohang/HoanTat/">Thanh Toán</a> 

@@ -33,13 +33,15 @@
     <div id="siteWrapper" class="clearfix" style="background-color:#f1f1f1">
         <header id="header" class="show-on-scroll" role="banner">
             <div class="header-inner">
-                <div id="logoWrapper" class="wrapper" data-content-field="site-title">
-                    <h1 id="logoImage">
-                        <a href="/">
-                            @*logo*@
-                            @*<img src="//static1.squarespace.com/static/5b94a223506fbe722619b779/t/5b951526c2241b0779142025/1551331511998/?format=1500w"/>*@
-                        </a>
-                    </h1>
+                <div id="logoWrapper" class="wrapper ega-item-top-bar" data-content-field="site-title">
+                    <form class="ega-form-search-top" role="search" method="get" action="/Product/Search">
+                        <div class="ega-div-top-search">
+                            <input autocomplete="off" name="input" type="search" placeholder="Tìm kiếm sản phẩm">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </div>
+                    </form>
                 </div>
                 <div id="headerNav">
                     @Html.Action("Menu", "Product")
@@ -54,7 +56,7 @@
                         <div class="color-overlay"></div>
                         <figure id="thumbnail" class="loading content-fill">
                             <img src="~/Content/images/anhbia.jpg" />
-                        </figure> 
+                        </figure>
                     </div>
                 </div>
             </div>
@@ -63,14 +65,15 @@
         <div class="container body-content">
             @RenderBody()
         </div>
-    </div> 
+    </div>
     <footer>
         <br />
         <br />
         <br />
-        <br />        <br />
-        <br />
-        <br />
+        <br />   <p style="color:blue; font-weight:bold;font-size:large; text-align:center">  AI ACCESSORIES   <br /></p>
+        <br /><p style="font-weight:200;font-size:medium; text-align:center"><a style="font-weight:bold"> Liên hệ :</a> aiduong281@gmail.com / https://www.facebook.com/aiduong <br /></p>
+        <br /> <p style="font-weight:200;font-size:medium; text-align:center"><a style="font-weight:bold">Địa chỉ :</a> 41/16 Gò Cát, phường Phú Hữu, quận 9, thành phố Hồ Chí Minh. <br /></p>
+        <br /><p style="font-weight:200;font-size:medium; text-align:center"><a style="font-weight:bold"> Số điện thoại :</a> 078-455-7777 <br /></p>
         <br />        <br />
         <br />
         <br />

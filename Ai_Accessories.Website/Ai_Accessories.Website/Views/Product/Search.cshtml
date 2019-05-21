@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Ai_Accessories.Website.Models.SANPHAM>
+@{ 
+    ViewBag.Title = "Tìm kiếm sản phẩm";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+} 
+<style>
+    #history {
+        background-color: white
+    }
+</style>
+<div class="row">
+    <div class="col-md-9" id="content-left"> 
+        <div class="panel-body">
+            @if (ViewBag.TotalProduct > 0)
+            {
+                <p>Đã tìm thấy: @ViewBag.TotalProduct sản phẩm</p>
+                foreach (var product in Model)
+                {
+                    <div class="col-md-4">
+                        <a href="/chi-tiet-san-pham/@product.Id">
+                            <img src="~/Content/images/@product.HinhanhSP" class="img-responsive center-block">
+                        </a>
+                        <h4 class="text-center">@product.TenSP</h4>
+                        <h5 class="text-center">@String.Format("{0:n0}", product.Gia) VNĐ</h5>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="text-center">
+                    <p>Không tìm thấy sản phẩm nào...</p>
+                </div>
+            }
+        </div> 
+        <br /> 
+        <div id="history" class="container-fluid hidden">
+            <h2 class="title-collection">Sản phẩm đã xem qua</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="carousel carousel-showmanymoveone slide itemslider" id="PsanPhamLienQuan">
+                        <div class="carousel-inner" id="listProductHitory">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3" id="content-right">
+        @Html.Action("PartialSanPhamBanChayForDetail", "Product", new { number = 10 })
+    </div> 
+</div>
+<p>@ViewBag.TotalProduct</p>
+<script>
+    // code chạy mỗi lần load page
+    // khởi tạo mảng trống
+    var Storage = [];
+
+    // kiểm tra xem kho HistoryUser có được tạo chưa
+    // nếu đã tạo kho rồi thì đồng bộ dữ liệu đổ với mảng
+    // tạo một kho có tên là HistoryUser(có thể tạo thêm kho khác với tên khác. Nếu trùng tên sẽ ghi đè)
+    if (localStorage['HistoryUser'] != undefined) {
+        //dữ liệu trong kho chuyển thành kiểu JSON và gán bằng mảng đã khởi tạo ở trên
+        Storage = JSON.parse(localStorage['HistoryUser']);
+    }  
+
+    $(document).ready(function () {
+        //trường hợp có kho
+        if (localStorage['HistoryUser'] != undefined) { 
+            loadDataInStorage();
+        }  
+    });
+    //load data trong kho và show ra giao diện
+    function loadDataInStorage() {
+        $("#history").removeClass("hidden");
+        var $template = $("#listProductHitory");
+        for (var i = 0; i < Storage.length; i++) {
+            var html = ("<div class='item active'>" +
+                "<div class='col-xs-12 col-sm-6 col-md-3'>" +
+                "<a href='" + Storage[i].Infomation[0].url + "'>" +
+                "<img src='" + Storage[i].Infomation[0].image + "' class='img-responsive center-block'>" +
+                "</a>" +
+                "<h4 class='text-center'>" + Storage[i].Infomation[0].name + "</h4>" +
+                "<h5 class='text-center'>" + Storage[i].Infomation[0].pirce + "</h5>" +
+                "</div></div>");
+            $template.append(html);
+            html = "";
+        }
+    } 
+</script>

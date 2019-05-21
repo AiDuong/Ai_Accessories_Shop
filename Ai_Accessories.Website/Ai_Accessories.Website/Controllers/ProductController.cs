@@ -14,7 +14,9 @@ namespace Ai_Accessories.Website.Controllers
     public class ProductController : Controller
     {
         #region--Private--
-        
+
+        private ACCESSORIES_SHOPEntities db = new ACCESSORIES_SHOPEntities();
+
         //call SP class from Model
         private SanPhamModel sanpham = new SanPhamModel();
 
@@ -65,6 +67,17 @@ namespace Ai_Accessories.Website.Controllers
         #endregion
 
         #region--Menu--
+        // Lấy giỏ hàng
+        public List<Giohang> Laygiohang()
+        {
+            List<Giohang> lstGiohang = Session["Giohang"] as List<Giohang>;
+            if (lstGiohang == null)
+            {
+                lstGiohang = new List<Giohang>();
+                Session["Giohang"] = lstGiohang;
+            }
+            return lstGiohang;
+        }
 
         public ActionResult Menu()
         {
@@ -76,6 +89,8 @@ namespace Ai_Accessories.Website.Controllers
                 ViewBag.UserName = onLogin.ToString();
                 ViewBag.UserId = idUser.ToString();
             }
+            List<Giohang> lstGiohang = Laygiohang();
+            ViewBag.CartCouter = lstGiohang.Count;
             var product = menu.Get();
             return PartialView(product);
         }
@@ -152,7 +167,16 @@ namespace Ai_Accessories.Website.Controllers
             var product = sanpham.GetCotrangdiem(number);
             return PartialView(product);
         }
-        
+
+        #endregion
+
+        #region --Search--
+        public ActionResult Search(string input)
+        { 
+            var product = db.SANPHAMs.Where(f => f.TenSP.Contains(input)).ToList();
+            @ViewBag.TotalProduct = product.Count();
+            return View(product);
+        }
         #endregion
 
     }

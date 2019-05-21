@@ -1,6 +1,39 @@
 ﻿@model IEnumerable<Ai_Accessories.Website.Models.MENU> 
+<style>
+    #topActionCartNumber {
+        position: absolute;
+        background: #f36e36;
+        color: #fff;
+        top: -4px;
+        font-weight: 400;
+        right: -10px;
+        text-align: center;
+        border: 3px solid #f36e36;
+        font-size: 13px;
+        min-width: 14px;
+        line-height: 14px;
+        border-radius: 50%; 
+    }
+    #cart {
+        display: inline-block;
+        height: 38px;
+        width: 40px;
+        position: relative;
+        margin: 0 0 0 20px;
+    }
+</style>
 <div id="mainNavWrapper" class="nav-wrapper" data-content-field="navigation-mainNav">
     <nav id="mainNavigation" data-content-field="navigation-mainNav">
+       
+        <div id="cart">
+            <a href="/Giohang/Giohang">
+                <i class="fa fa-shopping-cart" style="color:white;position: absolute;left: 25px;top:10px"></i>
+                @if (ViewBag.CartCouter > 0)
+                {
+                    <span class="cart-num" id="topActionCartNumber" style="display: block;">@ViewBag.CartCouter</span>
+                }
+            </a>
+        </div>
         @foreach (var item in Model)
         {
             if (item.Child == null && item.IsParent == false)
